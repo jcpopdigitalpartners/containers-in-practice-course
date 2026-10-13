@@ -55,7 +55,7 @@ assert.equal(firstSection.length,3);
 for(const [i,c] of firstSection.entries()){
   click(`.chapter-link[data-go="${c.id}"]`);await settle(c.id);assertClip(c.id);
   assert.ok(new URL(audio.src).pathname.endsWith(`audacity-mod-11${i}.mp3`));
-  assert.equal(el('recording-label').textContent,`Module 1.1.${i} · ${c.title}`);
+  assert.equal(el('recording-label').textContent,`Module ${c.module} · Lesson ${c.lesson}`);
   assert.equal(el('lesson-position').textContent,`MODULE 1.1.${i}`);
 }
 const suppliedSecondSection=course.chapters.filter(c=>['1.2.0','1.2.1','1.2.2'].includes(c.lesson));
@@ -67,7 +67,7 @@ for(const c of [...suppliedSecondSection].reverse()){
   assert.ok(new URL(audio.src).pathname.endsWith(`aud-mod-${c.lesson.replaceAll('.','')}.mp3`));
   assert.equal(new URL(audio.src).searchParams.get('v'),c.audioOverride.sha256.slice(0,16),'Supplied recordings use their content version');
   const recording=d.querySelector('#reference-links a[download]');assert.equal(recording.download,c.audioOverride.file);assert.equal(recording.querySelector('strong').textContent,'Lesson recording ↓');assert.equal(recording.href,audio.src,'Resources downloads the individual supplied clip');
-  assert.equal(el('recording-label').textContent,`Module ${c.lesson} · ${c.title}`);
+  assert.equal(el('recording-label').textContent,`Module ${c.module} · Lesson ${c.lesson}`);
   assert.equal(el('duration').textContent,`${Math.floor(duration/60)}:${String(Math.floor(duration%60)).padStart(2,'0')}`);
 }
 click('.chapter-link[data-go="network"]');await settle('network');
