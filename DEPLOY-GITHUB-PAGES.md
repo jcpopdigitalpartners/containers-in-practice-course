@@ -1,23 +1,34 @@
 # Deploy the course to GitHub Pages
 
-1. Create an empty public GitHub repository under jcpopdigitalpartners named containers-in-practice-course. Leave README, .gitignore and license initialization unchecked because the package supplies the project files.
-2. Right-click the ZIP and choose Extract All. Set the destination to your Downloads/containers-in-practice-course folder. The ZIP contains the project files directly; its extracted root contains package.json, astro.config.mjs, pnpm-lock.yaml, src/, public/ and .github/workflows/deploy-pages.yml. Do not upload the ZIP or nest the project inside another repository folder.
-3. Open Git Bash and run:
+The course repository is `jcpopdigitalpartners/containers-in-practice-course`. The prepared course source is on the local branch `prep/github-pages`, based on the repository's current `main` branch. The included GitHub Actions workflow builds Astro and deploys `dist/` when changes reach `main`.
+
+## Publish the prepared branch
+
+From the deployment checkout, review the changes and push the branch:
 
 ```bash
-cd ~/Downloads/containers-in-practice-course
-git init -b main
-git add .
-git commit -m "Publish Containers in Practice course"
-git remote add origin https://github.com/jcpopdigitalpartners/containers-in-practice-course.git
-git push -u origin main
+git status --short
+git diff --stat origin/main...HEAD
+git push -u origin prep/github-pages
 ```
 
-These commands apply to the fresh extracted project. If Git asks for identity, set git config --local user.name "Your name" and git config --local user.email "you@example.com", then rerun the commit and push. Authenticate to GitHub when prompted.
+Open a pull request from `prep/github-pages` into `main` and review the file changes. Merge it when ready. The Pages workflow runs on the updated `main` branch.
 
-4. Open repository Settings > Pages. Under Build and deployment, set Source to GitHub Actions. The initial push may fail before Pages is enabled; this does not require a new commit.
-5. Open Actions > Deploy course to GitHub Pages. If it succeeded, continue. Otherwise Run workflow on main, or rerun the initial failed run after enabling Pages. Wait for build and deploy to succeed.
-6. Open https://jcpopdigitalpartners.github.io/containers-in-practice-course/. The deployment's page URL is authoritative. Test narration and seeking, lesson navigation, drawers, Larger Text diagram labels and the learner repository link.
-7. For later edits, change source, review git diff, commit and push to main. Actions rebuilds and deploys the website.
+If Git asks for your identity, set it for this repository and retry:
 
-The workflow, .github folder and subpath configuration are included. All audio is included. Use Git to upload, rather than GitHub's browser uploader. A successful local build is not evidence of a successful GitHub deployment. If Actions fails, open the red job and preserve its first relevant error message.
+```bash
+git config --local user.name "Your name"
+git config --local user.email "you@example.com"
+```
+
+Authenticate to GitHub when prompted. A GitHub account is needed to push the branch and merge the pull request. Public cloning and local course work do not require a GitHub account.
+
+## Enable and verify Pages
+
+1. In the repository, open **Settings → Pages**.
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+3. Open **Actions → Deploy Astro course to Pages** and wait for the build and deployment jobs to succeed.
+4. Open <https://jcpopdigitalpartners.github.io/containers-in-practice-course/>.
+5. Check narration and seeking, lesson navigation, both drawers, the larger-text preference on diagrams, and the learner-repository link.
+
+The workflow derives the project base path from the GitHub repository name and uploads `dist/`. No server, database, or cloud credentials are needed to host the course website; the learner API runs separately in the local lab.

@@ -1,0 +1,1 @@
+{"name":"containers-practice-api","private":true,"type":"module","scripts":{"start":"node server.mjs","test":"node --test server.test.mjs"},"dependencies":{"pg":"^8.16.3"}}
