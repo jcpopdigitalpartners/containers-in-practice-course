@@ -63,7 +63,7 @@ readinessForm?.addEventListener('submit',event=>{
  }else if(cores>=8&&ram>=16&&disk>=40){
   status='ready';heading='Full-course planning targets met';summary='Your entered measurements meet the recommended baseline for the complete course. This is a resource screen, not a successful container-lab test.';
   if(os==='mac'||os==='windows')reasons.push('Recheck the resources available inside the Linux VM / WSL 2 once it is configured. Host capacity alone does not prove guest capacity.');
-  reasons.push('Continue to 0.1 for installation, then validate runtime behavior in 0.2.');
+  reasons.push('Continue to 0.1 to prepare Linux/Git and clone the student workspace, then establish the toolchain baseline in 0.2.');
  }else{
   status='partial';heading='Introductory labs: planning targets met';summary='Your machine meets the Module 0–1 planning targets, but the full course may require a smaller workload, more memory, more storage or a more capable host.';
   if(cores<8)reasons.push(`CPU: ${cores} cores; full-course planning target is 8.`);

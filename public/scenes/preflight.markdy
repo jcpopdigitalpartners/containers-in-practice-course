@@ -1,18 +1,14 @@
 scene theme=paper layout=TB
 
-client Host "Your workstation"
-service Guest "Linux environment"
-service Runtime "Podman runtime"
-service Process "Container process"
+service Remote "Student repository · fussy-stork"
+storage Files "Local lab files"
+storage History "Supplied Git history"
 
-
-beat observe "Observe":
+beat observe "Find the student source":
   show $nodes stagger=80ms
 
-beat change "Investigate":
-  Host -> Guest "check allocation"
-  Guest -> Runtime "verify tools"
+beat change "Clone inside Linux":
+  Remote -> Files "git clone"
 
-beat prove "Verify":
-  Runtime -> Process "run OCI image"
-  Runtime <- Process "observe exit status"
+beat prove "Inspect the starting point":
+  Files -> History "git log and git status"

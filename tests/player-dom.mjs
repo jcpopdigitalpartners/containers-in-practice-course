@@ -165,13 +165,13 @@ click('.chapter-link[data-go="toolchain"]');await settle('toolchain');
 assert.equal(d.querySelector('[data-tool-game]'),null);
 assert.equal(d.querySelector('[data-install-content]').hidden,false);
 assert.equal(el('copy-commands').disabled,false);assert.equal(el('command-code').textContent,course.chapters.find(c=>c.id==='toolchain').code);
-click('[data-lesson="toolchain"] [data-go="preflight"]');await settle('preflight');assert.ok(visible('preflight'));
+click('.chapter-link[data-go="preflight"]');await settle('preflight');assert.ok(visible('preflight'));
 // Readiness hands off to the learner's OS installation path in Module 0.1.
 click('.opening-link');await settle('opening');
 const measurements={os:'mac',cores:8,ram:16,disk:40,arch:'yes',runtime:'yes',source:'guest'};
 for(const [key,value] of Object.entries(measurements))el('readiness-'+key).value=String(value);
 el('readiness-form').dispatchEvent(new w.Event('submit',{cancelable:true}));
-click('#readiness-to-os');await settle('toolchain');assert.ok(visible('toolchain'));assertClip('toolchain');
+click('#readiness-to-os');await settle('preflight');assert.ok(visible('preflight'));assertClip('preflight');
 assert.equal(d.querySelector('[data-install-os]').value,'mac');assert.equal(d.activeElement,d.querySelector('[data-install-os]'));
 assert.equal(d.querySelector('[data-install-platform="mac"]').hidden,false);
 assert.equal(el('lesson-search'),null);assert.equal(el('setup-dialog'),null);

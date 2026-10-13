@@ -50,4 +50,4 @@ try{
  assert.equal(Number(git('rev-list','--count','HEAD')),suppliedCount+4,'Supplied history, checkpoint and three investigation commits are preserved');
  assert.ok(git('show','checkpoint-0:evidence/module-0/preflight.txt').includes('Simulated report'),'Checkpoint includes its preflight report');
 }finally{fs.rmSync(scratch,{recursive:true,force:true});}
-console.log('PASS: five visible guides, terminal/directory/purpose/result/recovery, Bash syntax, separated review/readiness actions, hosted clone and supplied history, isolated checkpoint/report/task-branch/merge workflows, Containerfile inputs and startup');
+console.log('PASS: six visible guides, terminal/directory/purpose/result/recovery, Bash syntax, separated review/readiness actions, hosted clone and supplied history, isolated checkpoint/report/task-branch/merge workflows, Containerfile inputs and startup');

@@ -193,18 +193,125 @@
       }
     },
     {
-      "id": "toolchain",
+      "id": "preflight",
       "module": 0,
       "lesson": "00.1",
-      "title": "Prepare your toolchain",
-      "subtitle": "Six OSS tools for Module 1",
+      "title": "Clone your student workspace",
+      "subtitle": "The right repository, inside Linux",
       "track": 2,
+      "at": 0,
+      "kind": "CLONE",
+      "heading": "Start with the student workspace",
+      "description": "Prepare a Linux shell and Git, then clone the student repository. Keep the course website and the lab workload distinct so the later checks run against the right files.",
+      "insight": "Clone first; verify the toolchain against that workspace next.",
+      "evidence": "The student repository is cloned inside Linux, origin identifies fussy-stork, and the supplied history and lab files are visible.",
+      "visual": "test",
+      "labels": [
+        "Student repository",
+        "Local lab files",
+        "Git history"
+      ],
+      "resources": [
+        "podman",
+        "tofu"
+      ],
+      "code": "git clone https://github.com/jcpopdigitalpartners/fussy-stork.git ~/containers-practice-starter\ncd ~/containers-practice-starter\ngit remote -v\ngit log --oneline -3\ngit status",
+      "codeLabel": "CLONE · LINUX SHELL",
+      "cues": [
+        {
+          "from": 60,
+          "to": 70,
+          "target": "heading"
+        },
+        {
+          "from": 70,
+          "to": 80,
+          "target": "insight"
+        },
+        {
+          "from": 80,
+          "to": 87,
+          "target": "evidence"
+        }
+      ],
+      "tasks": [
+        "Use the setup guide to prepare Linux and Git. Clone https://github.com/jcpopdigitalpartners/fussy-stork.git into ~/containers-practice-starter inside Linux.",
+        "Inspect origin and the supplied history. Confirm README.md, api/, labs/, scripts/, work/ and evidence/ exist; the student repository is fussy-stork.",
+        "Set your local Git identity and inspect the clean starting state. Continue to 0.2 to install and verify the remaining course tools."
+      ],
+      "prompt": "Are you working in the student repository?",
+      "proof": "The student repository is cloned inside Linux, origin identifies fussy-stork, and the supplied history and lab files are visible.",
+      "recovery": "A .git suffix belongs to the clone URL, not a separate shell command. If cloning completes, inspect the remote before retrying. Preserve an existing workspace rather than overwriting it.",
+      "resourcesResolved": [
+        {
+          "title": "Student repository · Clone",
+          "detail": "API source, investigation briefs and live solution checks",
+          "url": "https://github.com/jcpopdigitalpartners/fussy-stork",
+          "label": "STUDENT WORKSPACE"
+        },
+        {
+          "title": "Git · Documentation",
+          "detail": "Cloning and inspecting the supplied history",
+          "url": "https://git-scm.com/docs/git-clone",
+          "label": "OFFICIAL DOCS"
+        }
+      ],
+      "scene": "scene theme=paper layout=TB\n\nservice Remote \"Student repository · fussy-stork\"\nstorage Files \"Local lab files\"\nstorage History \"Supplied Git history\"\n\nbeat observe \"Find the student source\":\n  show $nodes stagger=80ms\n\nbeat change \"Clone inside Linux\":\n  Remote -> Files \"git clone\"\n\nbeat prove \"Inspect the starting point\":\n  Files -> History \"git log and git status\"\n",
+      "sceneFile": "preflight.markdy",
+      "steps": [
+        {
+          "title": "Find the student source",
+          "text": "fussy-stork supplies the API, schema, investigation briefs and solution checks. The course website is a separate repository."
+        },
+        {
+          "title": "Clone inside Linux",
+          "text": "Clone into ~/containers-practice-starter in your Linux environment. Git retrieves both files and history."
+        },
+        {
+          "title": "Inspect the starting point",
+          "text": "Confirm origin, the starter history and a clean working tree. Install and verify the remaining tools in 0.2."
+        }
+      ],
+      "diagramText": [
+        {
+          "title": "Find the student source",
+          "text": "fussy-stork supplies the API, schema, investigation briefs and solution checks. The course website is a separate repository."
+        },
+        {
+          "title": "Clone inside Linux",
+          "text": "Clone into ~/containers-practice-starter in your Linux environment. Git retrieves both files and history."
+        },
+        {
+          "title": "Inspect the starting point",
+          "text": "Confirm origin, the starter history and a clean working tree. Install and verify the remaining tools in 0.2."
+        }
+      ],
+      "terms": [
+        "Git",
+        "Repository"
+      ],
+      "sourceTrack": 1,
+      "sourceAt": 59.5,
+      "sourceEnd": 87.4,
+      "audioOverride": {
+        "file": "audacity-mod-02.mp3",
+        "uploadedName": "audacity mod 02.mp3",
+        "sha256": "192e2fd929eb1905d9143e8f4931e55d3dab460a233dcda65be3c84e0eddb8e7"
+      }
+    },
+    {
+      "id": "toolchain",
+      "module": 0,
+      "lesson": "00.2",
+      "title": "Establish your toolchain baseline",
+      "subtitle": "Installed, executed and recorded",
+      "track": 3,
       "at": 0,
       "kind": "PREPARE",
       "heading": "Tooling should follow the problem",
-      "description": "Start with Podman, Buildah, Skopeo, OpenTofu, Git, and curl. The rest of the course stack arrives when a use case requires it.",
+      "description": "With the student workspace cloned, install the remaining tools and run its preflight. Version strings show what is installed; the hello container supplies runtime evidence.",
       "insight": "Six tools. One immediate purpose.",
-      "evidence": "Choose your operating system, install the tools, and verify each command.",
+      "evidence": "All six preparation tools respond, the hello container executes successfully, and evidence/module-0/preflight.txt records the actual result.",
       "visual": "toolchain",
       "labels": [
         "Podman",
@@ -241,12 +348,12 @@
         }
       ],
       "tasks": [
-        "Choose your operating system in the installation guide. Install and verify the six tools. Leave Kubernetes for Module 2.",
-        "Test one claim in your local environment. Capture the command, result, and any failure.",
-        "Compare the observation with the evidence target. Explain what remains unproven."
+        "Use the OS guide to install the six preparation tools inside the Linux environment that contains your student clone. Leave Kubernetes for Module 2.",
+        "From ~/containers-practice-starter, run bash scripts/preflight.sh --runtime and save the report to evidence/module-0/preflight.txt.",
+        "Explain what the version checks and hello container prove. Resolve failures before using the result as the Checkpoint 0 baseline."
       ],
-      "prompt": "Which tool solves which problem?",
-      "proof": "Choose your operating system, install the tools, and verify each command.",
+      "prompt": "Does the cloned workspace have a working toolchain?",
+      "proof": "All six preparation tools respond, the hello container executes successfully, and evidence/module-0/preflight.txt records the actual result.",
       "recovery": "Choose your operating system in the installation guide. Check the package manager response and confirm you are in the named terminal. RHEL may require enabled repositories.",
       "resourcesResolved": [
         {
@@ -262,7 +369,7 @@
           "label": "OSS PROJECT"
         }
       ],
-      "code": "podman --version\nbuildah --version\nskopeo --version\ntofu version\ngit --version\ncurl --version\n# Installation commands are in the OS-specific guide.",
+      "code": "cd ~/containers-practice-starter\nset -o pipefail\nbash scripts/preflight.sh --runtime 2>&1 | tee evidence/module-0/preflight.txt",
       "scene": "scene theme=paper type=swimlane width=1040 height=460\n\nservice Buildah \"Buildah · build images\"\nservice Podman \"Podman · run containers\"\nservice Skopeo \"Skopeo · inspect images\"\nservice Tofu \"OpenTofu · declare infrastructure\"\nservice Git \"Git · record changes\"\nclient Curl \"curl · send requests\"\n\ngroup images \"Images and containers\": Buildah Podman Skopeo\ngroup supporting \"Infrastructure and evidence\": Tofu Git Curl\n\nbeat roles \"Six tools, six jobs\":\n  show $nodes stagger=80ms\n\nbeat images \"Build, run, inspect\":\n  glow Buildah Podman Skopeo\n\nbeat supporting \"Declare, record, request\":\n  glow Tofu Git Curl\n",
       "sceneFile": "toolchain.markdy",
       "steps": [
@@ -305,120 +412,6 @@
         "file": "audacity-mod-01.mp3",
         "uploadedName": "audacity mod 01.mp3",
         "sha256": "8b4c357e0130b46bf124c59906fa63dc54c69512e614aa4404c1d1e97eb0b48b"
-      }
-    },
-    {
-      "id": "preflight",
-      "module": 0,
-      "lesson": "00.2",
-      "title": "Verify your environment",
-      "subtitle": "Version checks ≠ runtime proof",
-      "track": 3,
-      "at": 0,
-      "kind": "VERIFY",
-      "heading": "A binary on PATH is not a working system",
-      "description": "First confirm the six executables respond. Then pull and run a small OCI image to test the runtime, registry access, and process execution.",
-      "insight": "Move from version strings to observable behavior.",
-      "evidence": "The hello container succeeds, your cloned learner workspace is available inside Linux, and its starter commit is visible.",
-      "visual": "test",
-      "labels": [
-        "Command",
-        "Runtime",
-        "Image"
-      ],
-      "resources": [
-        "podman",
-        "tofu"
-      ],
-      "code": "podman --version\nbuildah --version\nskopeo --version\ntofu version\ngit --version\ncurl --version\n\npodman run --rm quay.io/podman/hello",
-      "codeLabel": "PREFLIGHT · LINUX SHELL",
-      "cues": [
-        {
-          "from": 60,
-          "to": 70,
-          "target": "heading"
-        },
-        {
-          "from": 70,
-          "to": 80,
-          "target": "insight"
-        },
-        {
-          "from": 80,
-          "to": 87,
-          "target": "evidence"
-        }
-      ],
-      "tasks": [
-        "Run the six version checks and the Podman hello image. Explain which result proves that a container actually executes.",
-        "Follow the guided clone handoff below Understand: clone https://github.com/jcpopdigitalpartners/fussy-stork.git into ~/containers-practice-starter inside Linux, inspect its supplied Git history and run the repository preflight.",
-        "Confirm README.md, api/, labs/, scripts/ and evidence/ are present. Save the repository preflight report for Checkpoint 0; git status should show that report as your new work."
-      ],
-      "prompt": "Does the runtime execute an image?",
-      "proof": "The hello container succeeds, your cloned learner workspace is available inside Linux, and its starter commit is visible.",
-      "recovery": "Separate registry/network failures from rootless runtime failures; preserve the error before reinstalling anything.",
-      "resourcesResolved": [
-        {
-          "title": "Podman · Installation",
-          "detail": "OSS container runtime and Linux setup",
-          "url": "https://podman.io/docs/installation",
-          "label": "OFFICIAL DOCS"
-        },
-        {
-          "title": "OpenTofu · Installation",
-          "detail": "Reproducible infrastructure tooling",
-          "url": "https://opentofu.org/docs/intro/install/",
-          "label": "OFFICIAL DOCS"
-        },
-        {
-          "title": "Learner repository · Clone and checks",
-          "detail": "API source, investigation briefs and live solution checks",
-          "url": "https://github.com/jcpopdigitalpartners/fussy-stork",
-          "label": "COURSE WORKSPACE"
-        }
-      ],
-      "scene": "scene theme=paper layout=TB\n\nclient Host \"Your workstation\"\nservice Guest \"Linux environment\"\nservice Runtime \"Podman runtime\"\nservice Process \"Container process\"\n\n\nbeat observe \"Observe\":\n  show $nodes stagger=80ms\n\nbeat change \"Investigate\":\n  Host -> Guest \"check allocation\"\n  Guest -> Runtime \"verify tools\"\n\nbeat prove \"Verify\":\n  Runtime -> Process \"run OCI image\"\n  Runtime <- Process \"observe exit status\"\n",
-      "sceneFile": "preflight.markdy",
-      "steps": [
-        {
-          "title": "Observe the system",
-          "text": "First confirm the six executables respond. Then pull and run a small OCI image to test the runtime, registry access, and process execution."
-        },
-        {
-          "title": "Investigate the boundary",
-          "text": "Move from version strings to observable behavior."
-        },
-        {
-          "title": "Keep the evidence",
-          "text": "The sample container exits successfully. Treat a failure as a diagnostic signal."
-        }
-      ],
-      "diagramText": [
-        {
-          "title": "Observe",
-          "text": "The diagram shows Your workstation, Linux environment, Podman runtime, Container process."
-        },
-        {
-          "title": "Investigate",
-          "text": "Your workstation to Linux environment: check allocation. Linux environment to Podman runtime: verify tools."
-        },
-        {
-          "title": "Verify",
-          "text": "Podman runtime to Container process: run OCI image. Container process to Podman runtime: observe exit status."
-        }
-      ],
-      "terms": [
-        "Git",
-        "Image",
-        "Rootless"
-      ],
-      "sourceTrack": 1,
-      "sourceAt": 59.5,
-      "sourceEnd": 87.4,
-      "audioOverride": {
-        "file": "audacity-mod-02.mp3",
-        "uploadedName": "audacity mod 02.mp3",
-        "sha256": "192e2fd929eb1905d9143e8f4931e55d3dab460a233dcda65be3c84e0eddb8e7"
       }
     },
     {
@@ -4412,143 +4405,8 @@
       ]
     },
     {
-      "file": "audacity-mod-01.mp3",
-      "label": "Module 0 · 00.1 · Prepare your toolchain",
-      "length": 30.302041,
-      "peaks": [
-        0,
-        1,
-        0.644,
-        0.732,
-        0.593,
-        0.477,
-        0.842,
-        0.252,
-        0.496,
-        0.14,
-        0.435,
-        0.345,
-        0.232,
-        0.44,
-        0.126,
-        0.055,
-        0,
-        0.299,
-        0.765,
-        0.591,
-        0.311,
-        0.743,
-        0.509,
-        0.252,
-        0.514,
-        0.443,
-        0.229,
-        0.181,
-        0.313,
-        0.163,
-        0,
-        0.374,
-        0.514,
-        0.542,
-        0.358,
-        0.593,
-        0.705,
-        0.449,
-        0.507,
-        0.621,
-        0.346,
-        0.292,
-        0.037,
-        0.014,
-        0.016,
-        0.949,
-        0.536,
-        0.464,
-        0.487,
-        0.474,
-        0.175,
-        0.016,
-        0.126,
-        0.977,
-        0.409,
-        0.52,
-        0.544,
-        0.406,
-        0.601,
-        0.268,
-        0.148,
-        0.007,
-        0.022,
-        0.787,
-        0.634,
-        0.341,
-        0.454,
-        0.445,
-        0.453,
-        0.698,
-        0.233,
-        0.001,
-        0.309,
-        0.742,
-        0.615,
-        0.414,
-        0.266,
-        0.481,
-        0.575,
-        0.326,
-        0.259,
-        0.244,
-        0.002,
-        0.29,
-        0.624,
-        0.363,
-        0.257,
-        0.524,
-        0.505,
-        0.207,
-        0.153,
-        0.029,
-        0.009,
-        0,
-        0.557,
-        0.62,
-        0.45,
-        0.444,
-        0.597,
-        0.148,
-        0.039,
-        0.694,
-        0.458,
-        0.48,
-        0.26,
-        0.592,
-        0.061,
-        0.002,
-        0.192,
-        0.62,
-        0.769,
-        0.261,
-        0.357,
-        0.085,
-        0.604,
-        0.439,
-        0.174,
-        0.509,
-        0.155,
-        0.546,
-        0.082,
-        0.001,
-        0.641,
-        0.415,
-        0.328,
-        0.345,
-        0.149,
-        0.009
-      ]
-    },
-    {
       "file": "audacity-mod-02.mp3",
-      "label": "Module 0 · 00.2 · Verify your environment",
+      "label": "Module 0 · 00.1 · Clone your student workspace",
       "length": 27.297959,
       "peaks": [
         0,
@@ -4679,6 +4537,141 @@
         0.127,
         0.045,
         0.003
+      ]
+    },
+    {
+      "file": "audacity-mod-01.mp3",
+      "label": "Module 0 · 00.2 · Establish your toolchain baseline",
+      "length": 30.302041,
+      "peaks": [
+        0,
+        1,
+        0.644,
+        0.732,
+        0.593,
+        0.477,
+        0.842,
+        0.252,
+        0.496,
+        0.14,
+        0.435,
+        0.345,
+        0.232,
+        0.44,
+        0.126,
+        0.055,
+        0,
+        0.299,
+        0.765,
+        0.591,
+        0.311,
+        0.743,
+        0.509,
+        0.252,
+        0.514,
+        0.443,
+        0.229,
+        0.181,
+        0.313,
+        0.163,
+        0,
+        0.374,
+        0.514,
+        0.542,
+        0.358,
+        0.593,
+        0.705,
+        0.449,
+        0.507,
+        0.621,
+        0.346,
+        0.292,
+        0.037,
+        0.014,
+        0.016,
+        0.949,
+        0.536,
+        0.464,
+        0.487,
+        0.474,
+        0.175,
+        0.016,
+        0.126,
+        0.977,
+        0.409,
+        0.52,
+        0.544,
+        0.406,
+        0.601,
+        0.268,
+        0.148,
+        0.007,
+        0.022,
+        0.787,
+        0.634,
+        0.341,
+        0.454,
+        0.445,
+        0.453,
+        0.698,
+        0.233,
+        0.001,
+        0.309,
+        0.742,
+        0.615,
+        0.414,
+        0.266,
+        0.481,
+        0.575,
+        0.326,
+        0.259,
+        0.244,
+        0.002,
+        0.29,
+        0.624,
+        0.363,
+        0.257,
+        0.524,
+        0.505,
+        0.207,
+        0.153,
+        0.029,
+        0.009,
+        0,
+        0.557,
+        0.62,
+        0.45,
+        0.444,
+        0.597,
+        0.148,
+        0.039,
+        0.694,
+        0.458,
+        0.48,
+        0.26,
+        0.592,
+        0.061,
+        0.002,
+        0.192,
+        0.62,
+        0.769,
+        0.261,
+        0.357,
+        0.085,
+        0.604,
+        0.439,
+        0.174,
+        0.509,
+        0.155,
+        0.546,
+        0.082,
+        0.001,
+        0.641,
+        0.415,
+        0.328,
+        0.345,
+        0.149,
+        0.009
       ]
     },
     {

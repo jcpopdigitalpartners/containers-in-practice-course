@@ -21,17 +21,6 @@
       "sha256": "47cb138fbab3858b2f6239c803170dabafaeab4275ed16c665ca55638248c930"
     },
     {
-      "lesson": "toolchain",
-      "file": "audacity-mod-01.mp3",
-      "sourceFile": "audacity-mod-01.mp3",
-      "sourceStart": 0,
-      "sourceEnd": 30.302041,
-      "duration": 30.302041,
-      "mode": "supplied",
-      "uploadedName": "audacity mod 01.mp3",
-      "sha256": "8b4c357e0130b46bf124c59906fa63dc54c69512e614aa4404c1d1e97eb0b48b"
-    },
-    {
       "lesson": "preflight",
       "file": "audacity-mod-02.mp3",
       "sourceFile": "audacity-mod-02.mp3",
@@ -41,6 +30,17 @@
       "mode": "supplied",
       "uploadedName": "audacity mod 02.mp3",
       "sha256": "192e2fd929eb1905d9143e8f4931e55d3dab460a233dcda65be3c84e0eddb8e7"
+    },
+    {
+      "lesson": "toolchain",
+      "file": "audacity-mod-01.mp3",
+      "sourceFile": "audacity-mod-01.mp3",
+      "sourceStart": 0,
+      "sourceEnd": 30.302041,
+      "duration": 30.302041,
+      "mode": "supplied",
+      "uploadedName": "audacity mod 01.mp3",
+      "sha256": "8b4c357e0130b46bf124c59906fa63dc54c69512e614aa4404c1d1e97eb0b48b"
     },
     {
       "lesson": "recovery",

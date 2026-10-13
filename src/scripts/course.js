@@ -168,4 +168,4 @@ window.addEventListener('pagehide',event=>{if(!event.persisted){heroMotion?.disp
 
 window.addEventListener('resize',()=>waveform.setOptions({height:window.matchMedia('(max-width:720px)').matches?25:36}));
 
-initReadiness({doc:document,onContinue:guide=>{installationGuide.selectOS(guide==='macos'?'mac':guide);show(course.chapters.findIndex(c=>c.id==='toolchain'),{seek:true,focus:true,scroll:true});const picker=document.querySelector('[data-install-os]');picker.scrollIntoView({block:'center',behavior:'instant'});picker.focus({preventScroll:true});}});
+initReadiness({doc:document,onContinue:guide=>{installationGuide.selectOS(guide==='macos'?'mac':guide);show(course.chapters.findIndex(c=>c.id==='preflight'),{seek:true,focus:true,scroll:true});const picker=document.querySelector('[data-install-os]');picker.scrollIntoView({block:'center',behavior:'instant'});picker.focus({preventScroll:true});}});

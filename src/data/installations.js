@@ -29,3 +29,16 @@ export const toolJobs = [
  {tool:'Git',job:'Record',detail:'Record reviewable changes and return to earlier checkpoints.'},
  {tool:'curl',job:'Request',detail:'Send an HTTP request and examine the response.'}
 ];
+
+// Prepare only the Linux shell and Git before cloning in 0.1.
+const gitBootstrap=(rpm=false)=>({title:'Install Git for the clone',shell:rpm?'Linux Bash':'Ubuntu Bash',note:'Cloning needs Git and HTTPS certificates. The remaining course tools are installed and verified in 0.2.',code:rpm?'sudo dnf install -y git ca-certificates':'sudo apt-get update\nsudo apt-get install -y git ca-certificates'});
+export const workspaceInstallations=installations.map(os=>({
+ ...os,
+ intro:os.id==='mac'?'Create or enter the Ubuntu guest, then install Git inside it.':os.id==='windows'?'Prepare Ubuntu WSL2, then install Git in Ubuntu Bash.':'Use your Linux shell and install Git before cloning.',
+ steps:os.id==='mac'?[...os.steps.slice(0,2),gitBootstrap()]:os.id==='windows'?[...os.steps.slice(0,3),gitBootstrap()]:[gitBootstrap(os.id==='rhel')]
+}));
+export const baselineInstallations=installations.map(os=>({
+ ...os,
+ intro:os.id==='mac'?'Use the Ubuntu guest prepared in 0.1. Install the remaining tools inside that guest.':os.id==='windows'?'Use the Ubuntu WSL2 environment prepared in 0.1. Run these steps in Ubuntu Bash.':os.intro,
+ steps:os.id==='mac'?os.steps.slice(2):os.id==='windows'?os.steps.slice(3):os.steps
+}));

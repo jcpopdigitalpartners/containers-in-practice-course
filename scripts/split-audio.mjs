@@ -23,7 +23,7 @@ function peaks(file){
 }
 for(const [index,c] of chapters.entries()){
   const source=sources[c.sourceTrack];
-  const next=chapters.find(other=>other.sourceTrack===c.sourceTrack&&other.sourceAt>c.sourceAt);
+  const next=chapters.filter(other=>other.sourceTrack===c.sourceTrack&&other.sourceAt>c.sourceAt).sort((a,b)=>a.sourceAt-b.sourceAt)[0];
   const end=next?.sourceAt??source.length;
   const file=c.audioOverride?.file??(c.opening?source.file:`lesson-${c.id}.mp3`);
   const output=path.join(audioDirectory,file);
