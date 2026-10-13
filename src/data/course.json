@@ -153,7 +153,7 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "A repeatable starting state makes later failures easier to isolate. The first task is to separate “installed” from “working.”"
+          "text": "The opening frame names Your workstation, Linux environment, Podman runtime, and Container process."
         },
         {
           "title": "Investigate the boundary",
@@ -261,7 +261,7 @@
       "steps": [
         {
           "title": "Find the student source",
-          "text": "fussy-stork supplies the API, schema, investigation briefs and solution checks. The course website is a separate repository."
+          "text": "The opening frame names Student repository · fussy-stork, Local lab files, and Supplied Git history."
         },
         {
           "title": "Clone inside Linux",
@@ -375,7 +375,7 @@
       "steps": [
         {
           "title": "Six tools, six jobs",
-          "text": "Choose tools by the job you need to do. This is a role map; the tools do not form an automatic pipeline."
+          "text": "The opening frame names Buildah · build images, Podman · run containers, Skopeo · inspect images, OpenTofu · declare infrastructure, Git · record changes, curl · send requests, Images and containers, and Infrastructure and evidence."
         },
         {
           "title": "Build, run, inspect",
@@ -485,7 +485,7 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "A broken lab is an opportunity to isolate the fault. Observe, inspect, compare, repair, and restore only when useful investigation is exhausted."
+          "text": "The opening frame names Observe the failure, Capture exact output, Compare one variable, and Repair or restore."
         },
         {
           "title": "Investigate the boundary",
@@ -585,7 +585,7 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Complete the core path, use deep dives when a mechanism needs attention, and attempt challenges when you want less scaffolding."
+          "text": "The opening frame names Core investigation, Optional deep dive, Independent challenge, and Observable evidence."
         },
         {
           "title": "Investigate the boundary",
@@ -799,7 +799,7 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "A small API becomes our test case. Rather than building more functionality, we will account for the dependencies and assumptions around the application."
+          "text": "The opening frame names Source + Containerfile, Buildah, OCI image, and Running container."
         },
         {
           "title": "Investigate the boundary",
@@ -906,7 +906,7 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Start with a Node.js API backed by PostgreSQL. Identify the port, environment variables, health endpoint, database dependency, and stateful data."
+          "text": "The opening frame names Requesting client, API container, PostgreSQL, and Explicit container network."
         },
         {
           "title": "Investigate the boundary",
@@ -1013,7 +1013,7 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Build a portable image with Buildah, inspect the image, and run it with Podman. Keep a clear boundary between image contents and the environment that runs them."
+          "text": "The opening frame names Source + Containerfile, Buildah, OCI image, and Running container."
         },
         {
           "title": "Investigate the boundary",
@@ -1119,7 +1119,7 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Move database hostnames and other deployment settings out of the image. Provide values when the container starts, keeping credentials separate from source and build layers."
+          "text": "The opening frame names One OCI image, Development, Staging, and Environment-specific data."
         },
         {
           "title": "Investigate the boundary",
@@ -1227,7 +1227,7 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Connect the API and PostgreSQL through an isolated network. Use a service hostname for database traffic rather than assuming every process shares a network namespace."
+          "text": "The opening frame names Requesting client, API container, PostgreSQL, and Explicit container network."
         },
         {
           "title": "Investigate the boundary",
@@ -1335,7 +1335,7 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Remove a database container and observe what happens to data on its writable layer. Then attach a named volume and repeat the experiment."
+          "text": "The opening frame names API, Database process, Persistent volume, and Separate backup."
         },
         {
           "title": "Investigate the boundary",
@@ -1440,7 +1440,7 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Reduce unnecessary contents, keep installation deterministic, and execute the application as a non-root user. Verify that the behavior has not changed."
+          "text": "The opening frame names Source + Containerfile, Buildah, OCI image, and Running container."
         },
         {
           "title": "Investigate the boundary",
@@ -1541,7 +1541,7 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Move the environment’s inputs into a reviewable OpenTofu configuration. Inspect planned changes before applying them, and understand what state can and cannot prove."
+          "text": "The opening frame names OpenTofu configuration, Inspect the plan, Apply the change, and State + resources."
         },
         {
           "title": "Investigate the boundary",
@@ -1641,7 +1641,7 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Inspect what will be destroyed. Reconstruct disposable resources from their declarations and verify connectivity and application behavior."
+          "text": "The opening frame names Versioned configuration, Review resource changes, Reconstruct environment, and Behavioral checks."
         },
         {
           "title": "Investigate the boundary",
@@ -1739,7 +1739,7 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Configure development and staging from one OCI artifact. Make the environment differences explicit, inspect the running containers, and produce evidence of both."
+          "text": "The opening frame names Working files, Staging area, Local history, and Remote repository."
         },
         {
           "title": "Investigate the boundary",
@@ -1839,7 +1839,7 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Commit the configuration, retain verification evidence, and establish Checkpoint 1. The next module will put this application under load."
+          "text": "The opening frame names Working files, Staging area, Local history, and Remote repository."
         },
         {
           "title": "Investigate the boundary",
@@ -1937,7 +1937,7 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "One API instance may struggle under increased concurrency. Compare vertical scaling with distributing connections across several replicas of the same OCI image."
+          "text": "The opening frame names Client connections, Kubernetes Service, Ready Pod A, Ready Pod B, and Shared datastore."
         },
         {
           "title": "Investigate the boundary",
@@ -2022,7 +2022,7 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Use k6 to characterize latency, throughput, errors, and resource consumption before altering your deployment."
+          "text": "The opening frame names k6 workload, Service endpoint, API replicas, and Measurements."
         },
         {
           "title": "Investigate the boundary",
@@ -2109,7 +2109,7 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Run multiple copies of the same API image. A Service’s networking dataplane sends connections to eligible Pod endpoints."
+          "text": "The opening frame names Client connections, Kubernetes Service, Ready Pod A, Ready Pod B, and Shared datastore."
         },
         {
           "title": "Investigate the boundary",
@@ -2212,7 +2212,7 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "A new client connection may reach a different API Pod. Session preferences held in one Pod’s memory will not automatically be available to another. Valkey makes selected state available to all replicas."
+          "text": "The opening frame names Client connections, Kubernetes Service, Ready Pod A, Ready Pod B, and Shared datastore."
         },
         {
           "title": "Investigate the boundary",
@@ -2297,7 +2297,7 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Define and investigate CPU and memory requests and limits. Observe throttling, out-of-memory termination, and scheduling behavior."
+          "text": "The opening frame names Pod resource requests, Scheduler, Eligible worker node, and Runtime resource limits."
         },
         {
           "title": "Investigate the boundary",
@@ -2383,7 +2383,7 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Repeat load tests through the Service, then inspect application latency, errors, throughput, and resource metrics together."
+          "text": "The opening frame names k6 workload, Service endpoint, API replicas, and Measurements."
         },
         {
           "title": "Investigate the boundary",
@@ -2468,7 +2468,7 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Configure minimum and maximum replica counts with a CPU utilization target, then observe the resulting scale-out and scale-in behavior."
+          "text": "The opening frame names Metrics API, HPA controller, Deployment, and API Pods."
         },
         {
           "title": "Investigate the boundary",
@@ -2555,7 +2555,7 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "A shared datastore, database, connection pool, or network dependency can become the limiting factor as API replicas increase."
+          "text": "The opening frame names API Pod A, API Pod B, Shared database, and Latency + throughput."
         },
         {
           "title": "Investigate the boundary",
@@ -2642,7 +2642,7 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Show that traffic reaches multiple replicas, state survives replica changes, and scaling responds to measured demand. Save the test method and evidence."
+          "text": "The opening frame names Client connections, Kubernetes Service, Ready Pod A, Ready Pod B, and Shared datastore."
         },
         {
           "title": "Investigate the boundary",
@@ -2729,7 +2729,7 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Revisit the API, Valkey, and Postgres-QL system. Distinguish replacement of disposable compute from continuity of client work and durable records."
+          "text": "The opening frame names Clients, Service endpoint, Replacement Pod, and Existing data volume."
         },
         {
           "title": "Investigate the boundary",
@@ -2817,7 +2817,7 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Inspect the container filesystem, Pod lifetime, runtime configuration, and persistent data before replacing an API instance."
+          "text": "The opening frame names API, Database process, Persistent volume, and Separate backup."
         },
         {
           "title": "Investigate the boundary",
@@ -2905,7 +2905,7 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Explore PersistentVolumes, PersistentVolumeClaims, StorageClasses, and StatefulSets. In a local kind cluster, persistent storage is not equivalent to node-level high availability."
+          "text": "The opening frame names API, Database process, Persistent volume, and Separate backup."
         },
         {
           "title": "Investigate the boundary",
@@ -2993,7 +2993,7 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Use logical Postgres-QL backup concepts to define an independent restore test, then contrast persistence with recovery point and recovery time objectives."
+          "text": "The opening frame names Original database, Backup artifact, Restored database, and Record comparison."
         },
         {
           "title": "Investigate the boundary",
@@ -3081,7 +3081,7 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Compare how readiness changes traffic eligibility, liveness can trigger a restart, and startup gates initial checks. Avoid turning temporary dependency outages into restart storms."
+          "text": "The opening frame names Kubelet, Application container, and Service endpoints."
         },
         {
           "title": "Investigate the boundary",
@@ -3169,7 +3169,7 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Inspect termination signals, grace periods, in-flight requests, and asynchronous removal of terminating endpoints. Avoid promising that all client requests will always succeed."
+          "text": "The opening frame names Service endpoints, Terminating Pod, In-flight requests, and Process exit."
         },
         {
           "title": "Investigate the boundary",
@@ -3257,7 +3257,7 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Observe maxSurge, maxUnavailable, readiness gating, and Deployment revisions. Distinguish reverting an application from reversing database changes."
+          "text": "The opening frame names Deployment controller, Old ready Pods, New Pods, and Service endpoints."
         },
         {
           "title": "Investigate the boundary",
@@ -3345,7 +3345,7 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Introduce a known fault only in the disposable learning cluster; compare Kubernetes state with actual client outcomes and declare the limits of single-node kind."
+          "text": "The opening frame names Clients, Service endpoint, Replacement Pod, and Existing data volume."
         },
         {
           "title": "Investigate the boundary",
@@ -3432,7 +3432,7 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Consolidate persistent-record checks, isolated restore evidence, readiness observations, graceful-termination behavior, and one faulty rollout or Pod failure."
+          "text": "The opening frame names Clients, Service endpoint, Replacement Pod, and Existing data volume."
         },
         {
           "title": "Investigate the boundary",
@@ -3506,15 +3506,15 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Establish the truth before you harden anything."
+          "text": "The opening frame names Request, API process, Effective UID, and Writable paths."
         },
         {
           "title": "Investigate the boundary",
-          "text": "A baseline note that ties the health response, runtime identity, and writable surfaces to a named workload and image."
+          "text": "Probe the health endpoint, inspect the process UID, and test which paths accept writes."
         },
         {
           "title": "Keep the evidence",
-          "text": "A baseline note that ties the health response, runtime identity, and writable surfaces to a named workload and image."
+          "text": "Save the workload and image reference with the command output and write-test results."
         }
       ],
       "diagramText": [
@@ -3580,15 +3580,15 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Lower the process identity without breaking the service."
+          "text": "The opening frame names Host Podman identity, Container process UID, Pod security declarations, and Observed runtime identity."
         },
         {
           "title": "Investigate the boundary",
-          "text": "Before/after identity evidence, the rejected protected write, and a succeeding application request."
+          "text": "Compare the process identity before and after the change; test a protected write and a normal API request."
         },
         {
           "title": "Keep the evidence",
-          "text": "Before/after identity evidence, the rejected protected write, and a succeeding application request."
+          "text": "Keep the UID output, rejected write, and successful request as separate before-and-after evidence."
         }
       ],
       "diagramText": [
@@ -3654,15 +3654,15 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Constrain writes to deliberate surfaces."
+          "text": "The opening frame names API process, Root filesystem, Explicit writable mount, and External datastore."
         },
         {
           "title": "Investigate the boundary",
-          "text": "A mount or filesystem description, one expected read-only denial, one allowed bounded write, and a passing API check."
+          "text": "Try writing to the image filesystem, then test the allowed temporary mount and external datastore."
         },
         {
           "title": "Keep the evidence",
-          "text": "A mount or filesystem description, one expected read-only denial, one allowed bounded write, and a passing API check."
+          "text": "Record which writes were denied or allowed, and confirm the API still responds."
         }
       ],
       "diagramText": [
@@ -3728,15 +3728,15 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Trim authority and observe the exact denial."
+          "text": "The opening frame names API process, Linux capabilities, Seccomp profile, and Linux kernel."
         },
         {
           "title": "Investigate the boundary",
-          "text": "Recorded capability/seccomp configuration plus one policy-relevant denial and one successful application request."
+          "text": "Apply the reduced capability set and seccomp profile; capture one policy-relevant denial and one working request."
         },
         {
           "title": "Keep the evidence",
-          "text": "Recorded capability/seccomp configuration plus one policy-relevant denial and one successful application request."
+          "text": "Save the effective capability list, profile, denial, and successful API check."
         }
       ],
       "diagramText": [
@@ -3802,15 +3802,15 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Turn a vulnerability finding into an engineering decision."
+          "text": "The opening frame names Named image digest, Trivy scanner, Vulnerability findings, and Documented decision."
         },
         {
           "title": "Investigate the boundary",
-          "text": "Digest, scan output or structured report, triage rationale, and revalidation evidence when a change was made."
+          "text": "Scan the exact image digest and sort findings by severity, exploitability, and remediation path."
         },
         {
           "title": "Keep the evidence",
-          "text": "Digest, scan output or structured report, triage rationale, and revalidation evidence when a change was made."
+          "text": "Retain the digest, scan output, triage decision, and any re-scan result."
         }
       ],
       "diagramText": [
@@ -3876,15 +3876,15 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Make the software ingredients reviewable."
+          "text": "The opening frame names Named image digest, Syft inventory, SPDX / CycloneDX SBOM, and Trace one component."
         },
         {
           "title": "Investigate the boundary",
-          "text": "SPDX or CycloneDX SBOM plus a short explanation of one discovered direct, transitive, or base-image component."
+          "text": "Use Syft to generate an SPDX or CycloneDX document, then trace one component to its origin."
         },
         {
           "title": "Keep the evidence",
-          "text": "SPDX or CycloneDX SBOM plus a short explanation of one discovered direct, transitive, or base-image component."
+          "text": "Keep the image digest, SBOM file, and explanation of the selected component together."
         }
       ],
       "diagramText": [
@@ -3950,15 +3950,15 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Make the cluster say no—and justify why."
+          "text": "The opening frame names Pod creation request, Admission policy, Admitted Pod, and Rejected request."
         },
         {
           "title": "Investigate the boundary",
-          "text": "Namespace policy configuration, rejected Pod-creation response, and admitted healthy workload evidence."
+          "text": "Submit one compliant and one noncompliant Pod specification to the namespace policy."
         },
         {
           "title": "Keep the evidence",
-          "text": "Namespace policy configuration, rejected Pod-creation response, and admitted healthy workload evidence."
+          "text": "Save the admitted workload, rejected request, and policy response."
         }
       ],
       "diagramText": [
@@ -4024,15 +4024,15 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Verify exactly what you plan to run."
+          "text": "The opening frame names Source commit, Image digest, Scan + SBOM, and Deployed artifact."
         },
         {
           "title": "Investigate the boundary",
-          "text": "Pinned image digest, verification output or documented expected failure, and an explicit trusted identity/key criterion."
+          "text": "Verify the exact image digest against the signer or key you trust; capture expected failures as well."
         },
         {
           "title": "Keep the evidence",
-          "text": "Pinned image digest, verification output or documented expected failure, and an explicit trusted identity/key criterion."
+          "text": "Retain the verification output, trusted identity or key, and image digest."
         }
       ],
       "diagramText": [
@@ -4098,15 +4098,15 @@
       "steps": [
         {
           "title": "Observe the system",
-          "text": "Assemble the release evidence, not just a green dashboard."
+          "text": "The opening frame names Source commit, Image digest, Scan + SBOM, and Deployed artifact."
         },
         {
           "title": "Investigate the boundary",
-          "text": "Reviewable PR summary: tested digest, positive and negative outcomes, artifacts, residual risks, and links to raw evidence."
+          "text": "Assemble the image identity, scan and signature results, and runtime checks into a release summary."
         },
         {
           "title": "Keep the evidence",
-          "text": "Reviewable PR summary: tested digest, positive and negative outcomes, artifacts, residual risks, and links to raw evidence."
+          "text": "State what passed, what failed, and which claims the evidence cannot support."
         }
       ],
       "diagramText": [
