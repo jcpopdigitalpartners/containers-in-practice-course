@@ -157,11 +157,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "A working environment is a testable claim."
+          "text": "Your workstation to Linux environment: check allocation. Linux environment to Podman runtime: verify tools."
         },
         {
           "title": "Keep the evidence",
-          "text": "You can run the tools, execute a container, and return to a known checkpoint."
+          "text": "Podman runtime to Container process: run OCI image. Container process to Podman runtime: observe exit status."
         }
       ],
       "diagramText": [
@@ -489,11 +489,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "Observe → Inspect → Compare → Repair → Restore."
+          "text": "Observe the failure to Capture exact output: preserve the symptom. Capture exact output to Compare one variable: form a hypothesis."
         },
         {
           "title": "Keep the evidence",
-          "text": "You can explain what broke and identify the last known-good state."
+          "text": "Compare one variable to Repair or restore: test a bounded change."
         }
       ],
       "diagramText": [
@@ -589,11 +589,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "Progress is demonstrated through behavior, not pages viewed."
+          "text": "Core investigation to Observable evidence: required proof."
         },
         {
           "title": "Keep the evidence",
-          "text": "Use observable checkpoints to decide when a lesson is complete."
+          "text": "Core investigation to Optional deep dive: explore the mechanism. Core investigation to Independent challenge: use less scaffolding."
         }
       ],
       "diagramText": [
@@ -700,11 +700,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "A known-good baseline is an operational asset."
+          "text": "Working files to Staging area: git add. Staging area to Local history: git commit."
         },
         {
           "title": "Keep the evidence",
-          "text": "Record your result, establish Checkpoint 0 in source control, and begin the reproducibility exercise from a verified environment."
+          "text": "Local history to Remote repository: git push."
         }
       ],
       "diagramText": [
@@ -803,11 +803,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "The deliverable is a reconstructable system."
+          "text": "Source + Containerfile to Buildah: build context. Buildah to OCI image: packaged artifact."
         },
         {
           "title": "Keep the evidence",
-          "text": "Another developer should be able to inspect the repo and reproduce the runtime."
+          "text": "OCI image to Running container: Podman run."
         }
       ],
       "diagramText": [
@@ -910,11 +910,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "Application failures and environment failures are different problems."
+          "text": "Requesting client to API container: HTTP request."
         },
         {
           "title": "Keep the evidence",
-          "text": "The API responds before it is packaged, and its dependencies are documented."
+          "text": "API container to PostgreSQL: database operation. API container to Requesting client: HTTP response."
         }
       ],
       "diagramText": [
@@ -1017,11 +1017,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "One image can produce many independent containers."
+          "text": "Source + Containerfile to Buildah: build context. Buildah to OCI image: packaged artifact."
         },
         {
           "title": "Keep the evidence",
-          "text": "A call to /health succeeds through the published container port."
+          "text": "OCI image to Running container: Podman run."
         }
       ],
       "diagramText": [
@@ -1123,11 +1123,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "The same image should work in development and staging."
+          "text": "One OCI image to Development: runtime configuration. One OCI image to Staging: runtime configuration."
         },
         {
           "title": "Keep the evidence",
-          "text": "The image identifier remains unchanged when runtime configuration changes."
+          "text": "Staging to Environment-specific data: configured hostname."
         }
       ],
       "diagramText": [
@@ -1231,11 +1231,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "Two services. Separate lifecycles. One explicit connection."
+          "text": "Requesting client to API container: HTTP request."
         },
         {
           "title": "Keep the evidence",
-          "text": "Create a record through the API, then retrieve it from PostgreSQL."
+          "text": "API container to PostgreSQL: database operation. API container to Requesting client: HTTP response."
         }
       ],
       "diagramText": [
@@ -1339,11 +1339,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "Persistent storage is not the same as backup."
+          "text": "API to Database process: write record. Database process to Persistent volume: persist data."
         },
         {
           "title": "Keep the evidence",
-          "text": "Records survive database-container replacement when the same persistent volume is reused."
+          "text": "Database process to Separate backup: create backup."
         }
       ],
       "diagramText": [
@@ -1444,11 +1444,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "Remove dependencies and privileges the runtime does not need."
+          "text": "Source + Containerfile to Buildah: build context. Buildah to OCI image: packaged artifact."
         },
         {
           "title": "Keep the evidence",
-          "text": "The API still passes its health test after the image is rebuilt."
+          "text": "OCI image to Running container: Podman run."
         }
       ],
       "diagramText": [
@@ -1545,11 +1545,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "Desired state should be explicit, reviewable, and repeatable."
+          "text": "OpenTofu configuration to Inspect the plan: declare desired resources. Inspect the plan to Apply the change: review before applying."
         },
         {
           "title": "Keep the evidence",
-          "text": "Review a plan, apply the lab configuration, and inspect the resulting outputs."
+          "text": "Apply the change to State + resources: track managed resources."
         }
       ],
       "diagramText": [
@@ -1645,11 +1645,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "Do not destroy persistent data just to demonstrate reproducibility."
+          "text": "Versioned configuration to Review resource changes: review scope. Review resource changes to Reconstruct environment: apply intended state."
         },
         {
           "title": "Keep the evidence",
-          "text": "The environment can be rebuilt and the API tested without undocumented manual steps."
+          "text": "Behavioral checks to Reconstruct environment: verify reconstructed behavior."
         }
       ],
       "diagramText": [
@@ -1743,11 +1743,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "Change configuration; preserve the artifact."
+          "text": "Working files to Staging area: git add. Staging area to Local history: git commit."
         },
         {
           "title": "Keep the evidence",
-          "text": "Both environments respond, and the image identity is unchanged."
+          "text": "Local history to Remote repository: git push."
         }
       ],
       "diagramText": [
@@ -1843,11 +1843,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "Reproducibility gives us a stable starting point. Next: scale."
+          "text": "Working files to Staging area: git add. Staging area to Local history: git commit."
         },
         {
           "title": "Keep the evidence",
-          "text": "Image, configuration, network, state, and recovery have clear boundaries."
+          "text": "Local history to Remote repository: git push."
         }
       ],
       "diagramText": [
@@ -1941,11 +1941,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "Adding replicas can add capacity, but never guarantees a threefold improvement."
+          "text": "Client connections to Kubernetes Service: new connections. Kubernetes Service to Ready Pod A: eligible endpoint. Kubernetes Service to Ready Pod B: eligible endpoint."
         },
         {
           "title": "Keep the evidence",
-          "text": "Describe the client, Service, replicas, and shared dependency without confusing their responsibilities."
+          "text": "Ready Pod A to Shared datastore: shared state. Ready Pod B to Shared datastore: shared state."
         }
       ],
       "diagramText": [
@@ -2026,11 +2026,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "Demand and delivered performance are different measurements."
+          "text": "k6 workload to Service endpoint: controlled demand. Service endpoint to API replicas: connections."
         },
         {
           "title": "Keep the evidence",
-          "text": "Retain baseline results so later changes can be compared fairly."
+          "text": "API replicas to Measurements: latency · errors · CPU."
         }
       ],
       "diagramText": [
@@ -2113,11 +2113,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "The Service routes network traffic. It does not hold application session state."
+          "text": "Client connections to Kubernetes Service: new connections. Kubernetes Service to Ready Pod A: eligible endpoint. Kubernetes Service to Ready Pod B: eligible endpoint."
         },
         {
           "title": "Keep the evidence",
-          "text": "Inspect Deployment replicas, ready Pods, Service selectors, and eligible EndpointSlices."
+          "text": "Ready Pod A to Shared datastore: shared state. Ready Pod B to Shared datastore: shared state."
         }
       ],
       "diagramText": [
@@ -2216,11 +2216,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "Client traffic flows through the API Service; state reads and writes originate from the Pods when needed."
+          "text": "Client connections to Kubernetes Service: new connections. Kubernetes Service to Ready Pod A: eligible endpoint. Kubernetes Service to Ready Pod B: eligible endpoint."
         },
         {
           "title": "Keep the evidence",
-          "text": "A state value written by Pod 1 can be read by Pod 3; a stateless request need not touch Valkey."
+          "text": "Ready Pod A to Shared datastore: shared state. Ready Pod B to Shared datastore: shared state."
         }
       ],
       "diagramText": [
@@ -2301,11 +2301,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "A CPU request is not a CPU limit; memory limits can cause process termination."
+          "text": "Pod resource requests to Scheduler: requests guide placement. Scheduler to Eligible worker node: choose eligible node."
         },
         {
           "title": "Keep the evidence",
-          "text": "Inspect actual workload behavior under declared resource constraints."
+          "text": "Pod resource requests to Runtime resource limits: limits constrain usage."
         }
       ],
       "diagramText": [
@@ -2387,11 +2387,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "Measure the complete request path, including shared dependencies."
+          "text": "k6 workload to Service endpoint: controlled demand. Service endpoint to API replicas: connections."
         },
         {
           "title": "Keep the evidence",
-          "text": "Produce comparable before-and-after observations."
+          "text": "API replicas to Measurements: latency · errors · CPU."
         }
       ],
       "diagramText": [
@@ -2472,11 +2472,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "An HPA utilization target is relative to declared requests, not host CPU."
+          "text": "Metrics API to HPA controller: observed utilization. HPA controller to Deployment: adjust desired replicas."
         },
         {
           "title": "Keep the evidence",
-          "text": "Observe CPU metrics and ready replica changes under sustained load."
+          "text": "Deployment to API Pods: reconcile count."
         }
       ],
       "diagramText": [
@@ -2559,11 +2559,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "Horizontal scalability is a property of the system, not a replica setting."
+          "text": "API Pod A to Shared database: shared dependency. API Pod B to Shared database: shared dependency."
         },
         {
           "title": "Keep the evidence",
-          "text": "Find one downstream bottleneck and propose a measurement to test it."
+          "text": "Shared database to Latency + throughput: measure the bottleneck."
         }
       ],
       "diagramText": [
@@ -2646,11 +2646,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "Evidence matters more than the number of Pods."
+          "text": "Client connections to Kubernetes Service: new connections. Kubernetes Service to Ready Pod A: eligible endpoint. Kubernetes Service to Ready Pod B: eligible endpoint."
         },
         {
           "title": "Keep the evidence",
-          "text": "Retain manifests, load-test configuration, measurements, and a concise architectural explanation."
+          "text": "Ready Pod A to Shared datastore: shared state. Ready Pod B to Shared datastore: shared state."
         }
       ],
       "diagramText": [
@@ -2733,11 +2733,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "Restarting a container is not the same as recovering a service."
+          "text": "Clients to Service endpoint: request. Service endpoint to Replacement Pod: eligible endpoint."
         },
         {
           "title": "Keep the evidence",
-          "text": "The Pod controller may restore the desired replica count, but application success and data safety require separate evidence."
+          "text": "Replacement Pod to Existing data volume: reconnect storage."
         }
       ],
       "diagramText": [
@@ -2821,11 +2821,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "Every layer has its own lifecycle."
+          "text": "API to Database process: write record. Database process to Persistent volume: persist data."
         },
         {
           "title": "Keep the evidence",
-          "text": "Replacement restores code and configuration, but not arbitrary writes in a disposable container layer."
+          "text": "Database process to Separate backup: create backup."
         }
       ],
       "diagramText": [
@@ -2909,11 +2909,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "A persistent claim decouples storage from Pod replacement."
+          "text": "API to Database process: write record. Database process to Persistent volume: persist data."
         },
         {
           "title": "Keep the evidence",
-          "text": "A claim may be rebound to a replacement workload, but local storage remains vulnerable to loss of its backing node."
+          "text": "Database process to Separate backup: create backup."
         }
       ],
       "diagramText": [
@@ -2997,11 +2997,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "A backup becomes credible when you successfully restore it."
+          "text": "Original database to Backup artifact: create backup. Backup artifact to Restored database: restore into test target."
         },
         {
           "title": "Keep the evidence",
-          "text": "Restored data is independently queryable and meets an explicitly stated expected result."
+          "text": "Record comparison to Restored database: check recovered records."
         }
       ],
       "diagramText": [
@@ -3085,11 +3085,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "A running process may be unable to serve a request."
+          "text": "Kubelet to Application container: startup / liveness."
         },
         {
           "title": "Keep the evidence",
-          "text": "Probe outcomes lead to different actions. Readiness failure and liveness failure are not interchangeable."
+          "text": "Application container to Service endpoints: readiness eligibility."
         }
       ],
       "diagramText": [
@@ -3173,11 +3173,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "Planned termination should not behave like a surprise crash."
+          "text": "Service endpoints to Terminating Pod: remove traffic eligibility. In-flight requests to Terminating Pod: finish accepted work."
         },
         {
           "title": "Keep the evidence",
-          "text": "SIGTERM handling, grace period, and endpoint removal coordinate imperfectly; existing connections may still need to finish."
+          "text": "Terminating Pod to Process exit: observe shutdown and grace."
         }
       ],
       "diagramText": [
@@ -3214,7 +3214,7 @@
       "kind": "RELEASE",
       "heading": "A successful rollout is verified from client behavior",
       "description": "Observe maxSurge, maxUnavailable, readiness gating, and Deployment revisions. Distinguish reverting an application from reversing database changes.",
-      "insight": "A successful rollout is verified from client behavior.",
+      "insight": "Readiness gates traffic to new replicas; the deployment revision alone does not prove a successful release.",
       "evidence": "New Pods gain eligibility only after readiness succeeds; rollback requires behavioral verification.",
       "visual": "rebuild",
       "labels": [
@@ -3261,11 +3261,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "A successful rollout is verified from client behavior."
+          "text": "The controller adds replacement Pods while keeping available capacity within rollout limits."
         },
         {
           "title": "Keep the evidence",
-          "text": "New Pods gain eligibility only after readiness succeeds; rollback requires behavioral verification."
+          "text": "The Service sends requests only to ready endpoints; verify the client response before deciding to roll back."
         }
       ],
       "diagramText": [
@@ -3349,11 +3349,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "Predict → Disrupt → Observe → Recover → Verify."
+          "text": "Clients to Service endpoint: request. Service endpoint to Replacement Pod: eligible endpoint."
         },
         {
           "title": "Keep the evidence",
-          "text": "A causal explanation: which condition changed, how it was detected, and how recovery was independently verified."
+          "text": "Replacement Pod to Existing data volume: reconnect storage."
         }
       ],
       "diagramText": [
@@ -3436,11 +3436,11 @@
         },
         {
           "title": "Investigate the boundary",
-          "text": "Document what survived, what failed, and what recovered."
+          "text": "Clients to Service endpoint: request. Service endpoint to Replacement Pod: eligible endpoint."
         },
         {
           "title": "Keep the evidence",
-          "text": "An evidence-backed claim that identifies exactly which failure modes the lab did—and did not—test."
+          "text": "Replacement Pod to Existing data volume: reconnect storage."
         }
       ],
       "diagramText": [
