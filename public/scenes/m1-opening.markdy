@@ -1,0 +1,17 @@
+scene theme=paper layout=TB
+
+storage Source "Source + Containerfile"
+service Build "Buildah"
+storage Image "OCI image"
+pod Instance "Running container"
+
+
+beat observe "Observe":
+  show $nodes stagger=80ms
+
+beat change "Investigate":
+  Source -> Build "build context"
+  Build -> Image "packaged artifact"
+
+beat prove "Verify":
+  Image -> Instance "Podman run"

@@ -1,0 +1,17 @@
+scene theme=paper layout=TB
+
+service Metrics "Metrics API"
+service HPA "HPA controller"
+service Deployment "Deployment"
+pod Pods "API Pods"
+
+
+beat observe "Observe":
+  show $nodes stagger=80ms
+
+beat change "Investigate":
+  Metrics -> HPA "observed utilization"
+  HPA -> Deployment "adjust desired replicas"
+
+beat prove "Verify":
+  Deployment -> Pods "reconcile count"

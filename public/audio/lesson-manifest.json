@@ -1,0 +1,401 @@
+{
+  "cutMode": "Supplied lesson tracks preserved unchanged; generated clips use MP3 frame copy without re-encoding",
+  "clips": [
+    {
+      "lesson": "opening",
+      "file": "course-opening.mp3",
+      "sourceFile": "course-opening.mp3",
+      "sourceStart": 0,
+      "sourceEnd": 96.444083,
+      "duration": 96.444083
+    },
+    {
+      "lesson": "baseline",
+      "file": "audacity-mod-00.mp3",
+      "sourceFile": "audacity-mod-00.mp3",
+      "sourceStart": 0,
+      "sourceEnd": 29.596735,
+      "duration": 29.596735,
+      "mode": "supplied",
+      "uploadedName": "audacity mod 00.mp3",
+      "sha256": "47cb138fbab3858b2f6239c803170dabafaeab4275ed16c665ca55638248c930"
+    },
+    {
+      "lesson": "toolchain",
+      "file": "audacity-mod-01.mp3",
+      "sourceFile": "audacity-mod-01.mp3",
+      "sourceStart": 0,
+      "sourceEnd": 30.302041,
+      "duration": 30.302041,
+      "mode": "supplied",
+      "uploadedName": "audacity mod 01.mp3",
+      "sha256": "8b4c357e0130b46bf124c59906fa63dc54c69512e614aa4404c1d1e97eb0b48b"
+    },
+    {
+      "lesson": "preflight",
+      "file": "audacity-mod-02.mp3",
+      "sourceFile": "audacity-mod-02.mp3",
+      "sourceStart": 0,
+      "sourceEnd": 27.297959,
+      "duration": 27.297959,
+      "mode": "supplied",
+      "uploadedName": "audacity mod 02.mp3",
+      "sha256": "192e2fd929eb1905d9143e8f4931e55d3dab460a233dcda65be3c84e0eddb8e7"
+    },
+    {
+      "lesson": "recovery",
+      "file": "audacity-mod-03.mp3",
+      "sourceFile": "audacity-mod-03.mp3",
+      "sourceStart": 0,
+      "sourceEnd": 37.041633,
+      "duration": 37.041633,
+      "mode": "supplied",
+      "uploadedName": "audacity mod 03.mp3",
+      "sha256": "907115e2c103105ae80e915ecb31ecd76bf9f06191494d167d00673b7bd6e912"
+    },
+    {
+      "lesson": "learning-modes",
+      "file": "audacity-mod-04.mp3",
+      "sourceFile": "audacity-mod-04.mp3",
+      "sourceStart": 0,
+      "sourceEnd": 21.106939,
+      "duration": 21.106939,
+      "mode": "supplied",
+      "uploadedName": "audacity mod 04.mp3",
+      "sha256": "9c57ef96fdd26b719e9913123ddd21781108e279b2ea9704a76c252e16e66239"
+    },
+    {
+      "lesson": "checkpoint",
+      "file": "audacity-mod-05.mp3",
+      "sourceFile": "audacity-mod-05.mp3",
+      "sourceStart": 0,
+      "sourceEnd": 23.092245,
+      "duration": 23.092245,
+      "mode": "supplied",
+      "uploadedName": "auudacity mod 05.mp3",
+      "sha256": "22e7de34521d8c4e04908e88c3c3b0a29555af322ad96369dc6f959148a1b086"
+    },
+    {
+      "lesson": "m1-opening",
+      "file": "audacity-mod-110.mp3",
+      "sourceFile": "audacity-mod-110.mp3",
+      "sourceStart": 0,
+      "sourceEnd": 64.600816,
+      "duration": 64.600816,
+      "mode": "supplied",
+      "uploadedName": "audacity mod 110.mp3",
+      "sha256": "78ff333d1e8a079ab916059bc62462074749fb5fc83af809ac8be7442ccb82ca"
+    },
+    {
+      "lesson": "inspect",
+      "file": "audacity-mod-111.mp3",
+      "sourceFile": "audacity-mod-111.mp3",
+      "sourceStart": 0,
+      "sourceEnd": 78.419592,
+      "duration": 78.419592,
+      "mode": "supplied",
+      "uploadedName": "audacity mod 111.mp3",
+      "sha256": "8b00aee4fc9929cb3c3d0c7e46d8c5b7b5bbb43247b6ad881d1ad906dfa8e0f1"
+    },
+    {
+      "lesson": "image",
+      "file": "audacity-mod-112.mp3",
+      "sourceFile": "audacity-mod-112.mp3",
+      "sourceStart": 0,
+      "sourceEnd": 72.019592,
+      "duration": 72.019592,
+      "mode": "supplied",
+      "uploadedName": "audacity mod 112.mp3",
+      "sha256": "476b018c379f9db4de87d4084ca140a8ca4d419d35f80541a93856d8015a0335"
+    },
+    {
+      "lesson": "config",
+      "file": "aud-mod-120.mp3",
+      "sourceFile": "aud-mod-120.mp3",
+      "sourceStart": 0,
+      "sourceEnd": 87.719184,
+      "duration": 87.719184,
+      "mode": "supplied",
+      "uploadedName": "aud mod 120.mp3",
+      "sha256": "38d8403f519de4234c143f875bbe7beedcad6f085c877f3a5ac85cf0baf7a06a"
+    },
+    {
+      "lesson": "network",
+      "file": "aud-mod-121.mp3",
+      "sourceFile": "aud-mod-121.mp3",
+      "sourceStart": 0,
+      "sourceEnd": 84.37551,
+      "duration": 84.37551,
+      "mode": "supplied",
+      "uploadedName": "aud mod 121.mp3",
+      "sha256": "e0a967bb0084a5925e7eb819a702c2b727536508b59e07da19b2a925f08a455b"
+    },
+    {
+      "lesson": "storage",
+      "file": "aud-mod-122.mp3",
+      "sourceFile": "aud-mod-122.mp3",
+      "sourceStart": 0,
+      "sourceEnd": 90.383673,
+      "duration": 90.383673,
+      "mode": "supplied",
+      "uploadedName": "aud mod 122.mp3",
+      "sha256": "faa1950dfc997e71838f20eee94eb2cb9fa00d13c793dde7bfe782de6c7aebd6"
+    },
+    {
+      "lesson": "harden",
+      "file": "lesson-harden.mp3",
+      "sourceFile": "module-1-part-3.mp3",
+      "sourceStart": 0,
+      "sourceEnd": 83,
+      "duration": 83.017143
+    },
+    {
+      "lesson": "iac",
+      "file": "lesson-iac.mp3",
+      "sourceFile": "module-1-part-3.mp3",
+      "sourceStart": 83,
+      "sourceEnd": 201,
+      "duration": 118.021224
+    },
+    {
+      "lesson": "rebuild",
+      "file": "lesson-rebuild.mp3",
+      "sourceFile": "module-1-part-3.mp3",
+      "sourceStart": 201,
+      "sourceEnd": 294,
+      "duration": 93.022041
+    },
+    {
+      "lesson": "challenge",
+      "file": "lesson-challenge.mp3",
+      "sourceFile": "module-1-part-3.mp3",
+      "sourceStart": 294,
+      "sourceEnd": 350,
+      "duration": 56.032653
+    },
+    {
+      "lesson": "conclusion",
+      "file": "lesson-conclusion.mp3",
+      "sourceFile": "module-1-part-3.mp3",
+      "sourceStart": 350,
+      "sourceEnd": 390.03425,
+      "duration": 40.045714
+    },
+    {
+      "lesson": "m2-opening",
+      "file": "lesson-m2-opening.mp3",
+      "sourceFile": "module-2-part-1.mp3",
+      "sourceStart": 0,
+      "sourceEnd": 181,
+      "duration": 181.002449
+    },
+    {
+      "lesson": "m2-baseline",
+      "file": "lesson-m2-baseline.mp3",
+      "sourceFile": "module-2-part-1.mp3",
+      "sourceStart": 181,
+      "sourceEnd": 267.15425,
+      "duration": 86.177959
+    },
+    {
+      "lesson": "m2-replicas",
+      "file": "lesson-m2-replicas.mp3",
+      "sourceFile": "module-2-part-2.mp3",
+      "sourceStart": 0,
+      "sourceEnd": 124,
+      "duration": 124.029388
+    },
+    {
+      "lesson": "m2-shared-state",
+      "file": "lesson-m2-shared-state.mp3",
+      "sourceFile": "module-2-part-2.mp3",
+      "sourceStart": 124,
+      "sourceEnd": 240,
+      "duration": 116.035918
+    },
+    {
+      "lesson": "m2-resources",
+      "file": "lesson-m2-resources.mp3",
+      "sourceFile": "module-2-part-2.mp3",
+      "sourceStart": 240,
+      "sourceEnd": 323.265306,
+      "duration": 83.252245
+    },
+    {
+      "lesson": "m2-load",
+      "file": "lesson-m2-load.mp3",
+      "sourceFile": "module-2-part-3.mp3",
+      "sourceStart": 0,
+      "sourceEnd": 129,
+      "duration": 129.018776
+    },
+    {
+      "lesson": "m2-hpa",
+      "file": "lesson-m2-hpa.mp3",
+      "sourceFile": "module-2-part-3.mp3",
+      "sourceStart": 129,
+      "sourceEnd": 224,
+      "duration": 95.007347
+    },
+    {
+      "lesson": "m2-bottleneck",
+      "file": "lesson-m2-bottleneck.mp3",
+      "sourceFile": "module-2-part-3.mp3",
+      "sourceStart": 224,
+      "sourceEnd": 309,
+      "duration": 85.002449
+    },
+    {
+      "lesson": "m2-checkpoint",
+      "file": "lesson-m2-checkpoint.mp3",
+      "sourceFile": "module-2-part-3.mp3",
+      "sourceStart": 309,
+      "sourceEnd": 390.922417,
+      "duration": 81.946122
+    },
+    {
+      "lesson": "m3-0",
+      "file": "lesson-m3-0.mp3",
+      "sourceFile": "module-3-part-1.mp3",
+      "sourceStart": 0,
+      "sourceEnd": 126,
+      "duration": 126.014694
+    },
+    {
+      "lesson": "m3-1",
+      "file": "lesson-m3-1.mp3",
+      "sourceFile": "module-3-part-1.mp3",
+      "sourceStart": 126,
+      "sourceEnd": 245,
+      "duration": 119.013878
+    },
+    {
+      "lesson": "m3-2",
+      "file": "lesson-m3-2.mp3",
+      "sourceFile": "module-3-part-1.mp3",
+      "sourceStart": 245,
+      "sourceEnd": 369,
+      "duration": 124.029388
+    },
+    {
+      "lesson": "m3-3",
+      "file": "lesson-m3-3.mp3",
+      "sourceFile": "module-3-part-1.mp3",
+      "sourceStart": 369,
+      "sourceEnd": 494.759167,
+      "duration": 125.779592
+    },
+    {
+      "lesson": "m3-4",
+      "file": "lesson-m3-4.mp3",
+      "sourceFile": "module-3-part-2.mp3",
+      "sourceStart": 0,
+      "sourceEnd": 127,
+      "duration": 127.007347
+    },
+    {
+      "lesson": "m3-5",
+      "file": "lesson-m3-5.mp3",
+      "sourceFile": "module-3-part-2.mp3",
+      "sourceStart": 127,
+      "sourceEnd": 252,
+      "duration": 125.022041
+    },
+    {
+      "lesson": "m3-6",
+      "file": "lesson-m3-6.mp3",
+      "sourceFile": "module-3-part-2.mp3",
+      "sourceStart": 252,
+      "sourceEnd": 376.764083,
+      "duration": 124.786939
+    },
+    {
+      "lesson": "m3-7",
+      "file": "lesson-m3-7.mp3",
+      "sourceFile": "module-3-part-3.mp3",
+      "sourceStart": 0,
+      "sourceEnd": 148,
+      "duration": 148.009796
+    },
+    {
+      "lesson": "m3-8",
+      "file": "lesson-m3-8.mp3",
+      "sourceFile": "module-3-part-3.mp3",
+      "sourceStart": 148,
+      "sourceEnd": 275.644083,
+      "duration": 127.660408
+    },
+    {
+      "lesson": "m4-0",
+      "file": "lesson-m4-0.mp3",
+      "sourceFile": "module-4-part-1.mp3",
+      "sourceStart": 0,
+      "sourceEnd": 136.74,
+      "duration": 136.75102
+    },
+    {
+      "lesson": "m4-1",
+      "file": "lesson-m4-1.mp3",
+      "sourceFile": "module-4-part-1.mp3",
+      "sourceStart": 136.74,
+      "sourceEnd": 277.55,
+      "duration": 140.826122
+    },
+    {
+      "lesson": "m4-2",
+      "file": "lesson-m4-2.mp3",
+      "sourceFile": "module-4-part-1.mp3",
+      "sourceStart": 277.55,
+      "sourceEnd": 412.839167,
+      "duration": 135.314286
+    },
+    {
+      "lesson": "m4-3",
+      "file": "lesson-m4-3.mp3",
+      "sourceFile": "module-4-part-2.mp3",
+      "sourceStart": 0,
+      "sourceEnd": 130.53,
+      "duration": 130.533878
+    },
+    {
+      "lesson": "m4-4",
+      "file": "lesson-m4-4.mp3",
+      "sourceFile": "module-4-part-2.mp3",
+      "sourceStart": 130.53,
+      "sourceEnd": 270.99,
+      "duration": 140.486531
+    },
+    {
+      "lesson": "m4-5",
+      "file": "lesson-m4-5.mp3",
+      "sourceFile": "module-4-part-2.mp3",
+      "sourceStart": 270.99,
+      "sourceEnd": 401.475917,
+      "duration": 130.507755
+    },
+    {
+      "lesson": "m4-6",
+      "file": "lesson-m4-6.mp3",
+      "sourceFile": "module-4-part-3.mp3",
+      "sourceStart": 0,
+      "sourceEnd": 143.61,
+      "duration": 143.621224
+    },
+    {
+      "lesson": "m4-7",
+      "file": "lesson-m4-7.mp3",
+      "sourceFile": "module-4-part-3.mp3",
+      "sourceStart": 143.61,
+      "sourceEnd": 283.44,
+      "duration": 139.859592
+    },
+    {
+      "lesson": "m4-8",
+      "file": "lesson-m4-8.mp3",
+      "sourceFile": "module-4-part-3.mp3",
+      "sourceStart": 283.44,
+      "sourceEnd": 398.524083,
+      "duration": 115.09551
+    }
+  ]
+}

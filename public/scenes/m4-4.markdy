@@ -1,0 +1,17 @@
+scene theme=paper layout=TB
+
+storage Image "Named image digest"
+service Trivy "Trivy scanner"
+storage Findings "Vulnerability findings"
+service Decision "Documented decision"
+
+
+beat observe "Observe":
+  show $nodes stagger=80ms
+
+beat change "Investigate":
+  Image -> Trivy "scan exact artifact"
+  Trivy -> Findings "capture findings"
+
+beat prove "Verify":
+  Findings -> Decision "assess context and fixes"

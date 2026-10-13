@@ -1,0 +1,17 @@
+scene theme=paper layout=TB
+
+storage Files "Working files"
+storage Stage "Staging area"
+storage Commit "Local history"
+storage Remote "Remote repository"
+
+
+beat observe "Observe":
+  show $nodes stagger=80ms
+
+beat change "Investigate":
+  Files -> Stage "git add"
+  Stage -> Commit "git commit"
+
+beat prove "Verify":
+  Commit -> Remote "git push"

@@ -1,0 +1,28 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {JSDOM} from 'jsdom';
+import {createHeroMotion} from '../src/scripts/hero-motion.js';
+
+const dom=new JSDOM(fs.readFileSync('dist/index.html','utf8'),{pretendToBeVisual:true}),w=dom.window,d=w.document;
+let intersection,disconnected=false;w.IntersectionObserver=class{constructor(callback){intersection=callback;}observe(){}disconnect(){disconnected=true;}};
+const timelines=[],resets=[];
+const gsap={set:(target,values)=>resets.push({target,values}),timeline:options=>{const timeline={options,steps:[],playing:false,killed:false,to(target,values,at){this.steps.push({target,values,at});return this;},play(){this.playing=true;return this;},pause(){this.playing=false;return this;},kill(){this.killed=true;this.playing=false;}};timelines.push(timeline);return timeline;}};
+const controller=createHeroMotion({doc:d,gsap}),button=d.getElementById('hero-motion-toggle');
+assert.equal(timelines.length,1);assert.equal(timelines[0].options.repeat,-1);assert.equal(timelines[0].playing,true);assert.equal(timelines[0].steps.length,5);
+assert.ok(timelines[0].steps.some(step=>step.target.dataset.layer==='top'&&step.values.y<0));
+assert.ok(timelines[0].steps.some(step=>step.target.dataset.layer==='middle'&&step.values.y===0));
+assert.equal(button.closest('[aria-hidden="true"]'),null,'The animation control remains accessible');
+button.click();assert.equal(timelines[0].playing,false);assert.equal(button.textContent,'Play');
+button.click();assert.equal(timelines[0].playing,true);assert.equal(button.textContent,'Pause');
+intersection([{isIntersecting:false}]);assert.equal(timelines[0].playing,false);
+intersection([{isIntersecting:true}]);assert.equal(timelines[0].playing,true);
+Object.defineProperty(d,'hidden',{value:true,configurable:true});d.dispatchEvent(new w.Event('visibilitychange'));assert.equal(timelines[0].playing,false);
+Object.defineProperty(d,'hidden',{value:false,configurable:true});d.dispatchEvent(new w.Event('visibilitychange'));assert.equal(timelines[0].playing,true);
+controller.setActive(false);assert.equal(timelines[0].playing,false);intersection([{isIntersecting:true}]);assert.equal(timelines[0].playing,false,'Other lessons keep the opening illustration paused');controller.setActive(true);assert.equal(timelines[0].playing,true);
+controller.setReduced(true);assert.equal(timelines[0].killed,true);assert.equal(button.disabled,true);assert.ok(resets.some(reset=>reset.values.y===0));
+controller.setReduced(false);assert.equal(timelines.length,2);assert.equal(timelines[1].playing,true);assert.equal(button.disabled,false);
+button.click();controller.setReduced(true);controller.setReduced(false);assert.equal(timelines.at(-1).playing,false,'A manual pause survives a reduced-motion change');
+controller.dispose();assert.equal(timelines.at(-1).killed,true);assert.equal(disconnected,true);
+assert.ok(d.querySelector('#opening .workstation-targets table'));assert.equal(d.querySelector('#baseline .workstation-targets table'),null);assert.ok(d.querySelector('#opening #readiness-form'));
+console.log('PASS: separate/assemble/run animation, accessible pause/resume, off-screen and hidden-page suspension, reduced-motion reset/restart, manual pause retention, cleanup and sizing table relocation');
+w.close();

@@ -1,0 +1,17 @@
+scene theme=paper layout=TB
+
+service API "API process"
+storage Root "Root filesystem"
+storage Temp "Explicit writable mount"
+database DB "External datastore"
+
+
+beat observe "Observe":
+  show $nodes stagger=80ms
+
+beat change "Investigate":
+  API -> Root "test a forbidden write"
+
+beat prove "Verify":
+  API -> Temp "justified temporary writes"
+  API -> DB "preserve legitimate behavior"

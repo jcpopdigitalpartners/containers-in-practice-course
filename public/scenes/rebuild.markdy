@@ -1,0 +1,17 @@
+scene theme=paper layout=TB
+
+storage Source "Versioned configuration"
+service Plan "Review resource changes"
+service Rebuild "Reconstruct environment"
+client Test "Behavioral checks"
+
+
+beat observe "Observe":
+  show $nodes stagger=80ms
+
+beat change "Investigate":
+  Source -> Plan "review scope"
+  Plan -> Rebuild "apply intended state"
+
+beat prove "Verify":
+  Test -> Rebuild "verify reconstructed behavior"

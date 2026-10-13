@@ -1,0 +1,17 @@
+scene theme=paper layout=TB
+
+client Client "Request"
+service API "API process"
+service Identity "Effective UID"
+storage Files "Writable paths"
+
+
+beat observe "Observe":
+  show $nodes stagger=80ms
+
+beat change "Investigate":
+  Client -> API "health probe"
+  API -> Identity "inspect actual identity"
+
+beat prove "Verify":
+  API -> Files "test permitted / denied writes"

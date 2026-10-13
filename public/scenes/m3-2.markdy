@@ -1,0 +1,17 @@
+scene theme=paper layout=TB
+
+service API "API"
+database DB "Database process"
+storage Volume "Persistent volume"
+storage Backup "Separate backup"
+
+
+beat observe "Observe":
+  show $nodes stagger=80ms
+
+beat change "Investigate":
+  API -> DB "write record"
+  DB -> Volume "persist data"
+
+beat prove "Verify":
+  DB -> Backup "create backup"

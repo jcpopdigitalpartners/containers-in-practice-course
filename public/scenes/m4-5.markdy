@@ -1,0 +1,17 @@
+scene theme=paper layout=TB
+
+storage Image "Named image digest"
+service Syft "Syft inventory"
+storage SBOM "SPDX / CycloneDX SBOM"
+service Trace "Trace one component"
+
+
+beat observe "Observe":
+  show $nodes stagger=80ms
+
+beat change "Investigate":
+  Image -> Syft "inspect ingredients"
+  Syft -> SBOM "record inventory"
+
+beat prove "Verify":
+  SBOM -> Trace "investigate component origin"

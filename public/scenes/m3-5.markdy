@@ -1,0 +1,17 @@
+scene theme=paper layout=TB
+
+gateway Service "Service endpoints"
+pod Pod "Terminating Pod"
+client Inflight "In-flight requests"
+service Exit "Process exit"
+
+
+beat observe "Observe":
+  show $nodes stagger=80ms
+
+beat change "Investigate":
+  Service -> Pod "remove traffic eligibility"
+  Inflight -> Pod "finish accepted work"
+
+beat prove "Verify":
+  Pod -> Exit "observe shutdown and grace"

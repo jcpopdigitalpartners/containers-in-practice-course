@@ -1,0 +1,17 @@
+scene theme=paper layout=TB
+
+pod Pod "Pod resource requests"
+service Scheduler "Scheduler"
+service Node "Eligible worker node"
+service Runtime "Runtime resource limits"
+
+
+beat observe "Observe":
+  show $nodes stagger=80ms
+
+beat change "Investigate":
+  Pod -> Scheduler "requests guide placement"
+  Scheduler -> Node "choose eligible node"
+
+beat prove "Verify":
+  Pod -> Runtime "limits constrain usage"

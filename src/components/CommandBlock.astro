@@ -1,0 +1,9 @@
+---
+import TerminalBlock from './TerminalBlock.astro';
+const {terminal='Terminal',code,kind='Commands',pauseAfterFirst}=Astro.props;
+const commitAt=kind==='Commands'?code.indexOf('\ngit commit '):-1;
+const splitAt=pauseAfterFirst?code.indexOf('\n'):commitAt;
+const blocks=splitAt>=0?[code.slice(0,splitAt),code.slice(splitAt+1)]:[code];
+const pauseText=pauseAfterFirst||'Review the staged diff above. If it contains only the changes you intend to keep, run this next block.';
+---
+{blocks.map((block,i)=><>{i>0&&<p class="command-pause">{pauseText}</p>}<div class="guided-command"><span class="command-kind">{kind}</span>{kind==='File contents'?<pre><code>{block}</code></pre>:<TerminalBlock code={block} label={terminal}/>}<button type="button" data-lab-copy>Copy {kind==='File contents'?'file contents':'commands'}</button><span class="install-copy-status" role="status"></span></div></>)}

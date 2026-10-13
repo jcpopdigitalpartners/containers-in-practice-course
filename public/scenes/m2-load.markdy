@@ -1,0 +1,17 @@
+scene theme=paper layout=TB
+
+client Load "k6 workload"
+gateway Service "Service endpoint"
+pod API "API replicas"
+service Metrics "Measurements"
+
+
+beat observe "Observe":
+  show $nodes stagger=80ms
+
+beat change "Investigate":
+  Load -> Service "controlled demand"
+  Service -> API "connections"
+
+beat prove "Verify":
+  API -> Metrics "latency · errors · CPU"

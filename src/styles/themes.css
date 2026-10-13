@@ -1,0 +1,64 @@
+:root{color-scheme:light;--hover:#e8e8df}
+:root[data-theme=dark]{color-scheme:dark;--paper:#14231d;--panel:#1d3026;--ink:#edf1e5;--muted:#b8c7b4;--line:#465d49;--orange:#ffc393;--orange-light:#63442e;--green:#354e37;--hover:#2d4636;--diagram-surface:#0f172a;--diagram-line:var(--line)}
+.theme-toggle{display:inline-flex;align-items:center;gap:7px}
+#theme-icon{font-size:19px;line-height:1;width:19px;text-align:center}
+.setting select{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:4px;padding:9px 12px;font-size:14px}
+
+/* Warm orange makes the reference rail distinct in either page theme. */
+.resources{background:#f4ab7c;color:#17281f;--ink:#17281f;--muted:#443126;--line:#805533;--orange:#20332c;--hover:#ffd0aa;scrollbar-color:#805533 #f4ab7c}
+.resources .step-number{color:var(--muted)}
+.resources .step-overview button[aria-current=step] strong{color:var(--orange)}
+.resources .step-overview strong{font-size:14px}
+.resources .step-overview small,.resources #reference-links>a>span{font-size:13px}
+.resources .resource-bottom{color:var(--muted)}
+.resources pre{background:#102419;color:#eff5e5;border:1px solid #5c765c;font-size:14px;line-height:1.75;white-space:pre-wrap;overflow-wrap:anywhere}
+.resources pre code{font-size:inherit;line-height:inherit;color:inherit}
+.resources .command-crib button{font-size:12px;border-color:#544131}
+.resources :focus-visible,:root[data-theme=dark] .resources :focus-visible{outline-color:#17281f}
+.resources .eyebrow{color:var(--muted)}
+.resources a:hover,.resources button:hover{color:var(--orange)}
+.resources #reference-links>a>strong{font-size:13px}
+:root[data-theme=dark] .resources{background:#f4ab7c;scrollbar-color:#805533 #f4ab7c}
+
+/* Dark surfaces retain the course's forest and amber palette. */
+:root[data-theme=dark] .chapter-link:hover{background:#293f30}
+:root[data-theme=dark] .chapter-link[aria-current=page]{background:#354b35;color:#ffd2a1}
+:root[data-theme=dark] .done-mark{color:#bfd89c}
+:root[data-theme=dark] .module-context{background:#263d2d;border-color:#5b7455;border-left-color:var(--orange)}
+:root[data-theme=dark] .module-context:hover{background:#304935}
+:root[data-theme=dark] .module-number{border-color:#71886b}
+:root[data-theme=dark] .lesson-tag{background:#2b4431;border-color:#71886b;color:#d0e2b8}
+:root[data-theme=dark] .lesson-tabs button{color:var(--muted)}
+:root[data-theme=dark] .lesson-tabs button[aria-selected=true]{color:var(--orange)}
+:root[data-theme=dark] .scene-shell,:root[data-theme=dark] .diagram-mount{background:#0f172a;border-color:var(--line)}
+:root[data-theme=dark] .scene-shell figcaption{background:var(--panel)}
+:root[data-theme=dark] .scene-footer button{border-color:#71886b}
+:root[data-theme=dark] .boundary{background:#293f30;border-left-color:#9eb788}
+:root[data-theme=dark] .next-link{background:#304935;border-color:#71886b}
+:root[data-theme=dark] .evidence-target{background:#102218;color:var(--ink);border:1px solid var(--line)}
+:root[data-theme=dark] .evidence-target>.eyebrow{color:#c7d2bd}
+:root[data-theme=dark] .search{border-color:#71886b}
+:root[data-theme=dark] .primer-list>li>code{background:#253b2b;color:var(--ink);border-color:var(--line)}
+:root[data-theme=dark] .readiness-field input,:root[data-theme=dark] .readiness-field select{background:#24392b;border-color:#71886b;color:var(--ink)}
+:root[data-theme=dark] .readiness-disclosure{background:#1d3026;border-color:var(--line)}
+:root[data-theme=dark] .readiness-command{background:#263d2d}
+:root[data-theme=dark] .readiness-command pre{background:#102218;color:var(--ink)}
+:root[data-theme=dark] .readiness-results[data-result=ready]{border-left-color:#bad590}
+:root[data-theme=dark] .install-os select{background:#24392b;border-color:#71886b}
+:root[data-theme=dark] .install-unlocked,:root[data-theme=dark] .expected-result{background:#293f30;border-left-color:#bad590}
+:root[data-theme=dark] .installation-steps pre,:root[data-theme=dark] .install-workload pre{background:#102218;color:#eff5e5;border-color:#71886b}
+:root[data-theme=dark] .workspace-download{background:#304935;border-color:#71886b}
+:root[data-theme=dark] .lab-walkthrough .command-pause{background:#493627}
+:root[data-theme=dark] progress,:root[data-theme=dark] progress::-webkit-progress-bar{background:#435a43}
+:root[data-theme=dark] .brand svg{stroke:var(--orange)}
+:root[data-theme=dark] dialog{border-color:#71886b}
+:root[data-theme=dark] dialog::backdrop{background:#050d08b8}
+:root[data-theme=dark] .hero-art pattern circle{fill:#667c61}
+:root[data-theme=dark] .hero-art text{fill:#c7d2bd}
+:root[data-theme=dark] button:focus-visible,:root[data-theme=dark] a:focus-visible,:root[data-theme=dark] input:focus-visible,:root[data-theme=dark] select:focus-visible,:root[data-theme=dark] textarea:focus-visible,:root[data-theme=dark] summary:focus-visible{outline-color:#ffc393}
+
+@media(max-width:420px){#theme-toggle{display:none}}
+@media print{:root[data-theme=dark]{color-scheme:light;--paper:#fff;--panel:#fff;--ink:#20332c;--muted:#59645b;--line:#ccd5c6;--orange:#944421}#theme-toggle{display:none}}
+
+.resources #reference-links>a:hover>strong{text-decoration:underline;text-underline-offset:3px}
+:root[data-theme=dark] .install-terminal pre{background:#101a16;color:#eff5e5;border:0}

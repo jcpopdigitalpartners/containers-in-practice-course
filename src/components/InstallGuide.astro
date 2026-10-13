@@ -1,0 +1,15 @@
+---
+import TerminalBlock from './TerminalBlock.astro';
+import {installations} from '../data/installations.js';
+const {prefix='lesson-install',pickerId=`${prefix}-os`}=Astro.props;
+---
+<section class="install-guide" data-install-guide>
+ <div class="install-intro"><span class="eyebrow">MODULE 0.1 · YOUR FIRST BUILD</span><h3>Install your toolchain</h3><p>Choose your operating system, then install and verify the six tools in the terminal shown for each step.</p></div>
+ <label class="install-os" for={pickerId}>Where will you run the labs?<select id={pickerId} data-install-os>{installations.map(os=><option value={os.id}>{os.title}</option>)}</select></label>
+ <div data-install-content tabindex="-1" class="install-content" aria-label="Installation steps">
+  {installations.map(os=><section data-install-platform={os.id} hidden={os.id!=='ubuntu'} aria-labelledby={`${prefix}-${os.id}-heading`}><h4 id={`${prefix}-${os.id}-heading`}>{os.title}</h4><p>{os.intro}</p><ol class="installation-steps">{os.steps.map((step,i)=><li><div class="install-step-heading"><span class="install-step-number">{String(i+1).padStart(2,'0')}</span><div><h5>{step.title}</h5><span class="terminal-context">{step.shell}</span></div></div><p>{step.note}</p><TerminalBlock code={step.code} label={step.shell}/><button type="button" data-install-copy>Copy this step</button><span class="install-copy-status" role="status"></span></li>)}</ol><div class="install-sources"><span>Official guides</span>{os.sources.map(([title,url])=><a href={url} target="_blank" rel="noopener noreferrer">{title} ↗</a>)}</div></section>)}
+  <details class="install-workload"><summary>Before the Node.js investigation in Module 1.1.1</summary><p>That lesson runs the starter API with npm. Install the current Node.js LTS release, including npm, inside the same Linux environment, using the <a href="https://nodejs.org/en/download" target="_blank" rel="noopener noreferrer">official Node.js installation instructions ↗</a>. Verify both programs before starting the API.</p><TerminalBlock code={'node --version\nnpm --version'} label="Linux shell"/></details>
+  <p class="fine-print">kind and kubectl come in Module 2. First prove this toolchain works in the Module 0.2 preflight.</p><a class="text-link" href="#preflight" data-go="preflight">Continue to preflight →</a>
+ </div>
+ <noscript><p>All platform instructions are shown below. Choose your platform’s heading.</p></noscript>
+</section>

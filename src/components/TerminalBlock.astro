@@ -1,0 +1,4 @@
+---
+const {code='',label='Terminal',codeId,labelId}=Astro.props;
+---
+<div class="install-terminal"><div class="terminal-bar"><span class="terminal-dots" aria-hidden="true"><i></i><i></i><i></i></span><span id={labelId}>{label}</span><span class="terminal-tag" aria-hidden="true">TERMINAL</span></div><pre><code id={codeId}>{code}</code></pre></div>

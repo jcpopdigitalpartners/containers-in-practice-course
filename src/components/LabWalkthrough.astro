@@ -1,0 +1,10 @@
+---
+import CommandBlock from './CommandBlock.astro';
+const {guide,id}=Astro.props;
+---
+<section class="lab-walkthrough" id={`${id}-walkthrough`} aria-labelledby={`${id}-walkthrough-title`}>
+ <span class="eyebrow">GUIDED PRACTICE · FROM COMMAND TO EVIDENCE</span><h3 id={`${id}-walkthrough-title`}>{guide.title}</h3><p class="walkthrough-intro">{guide.intro}</p><p>Run one block at a time. Check its result before continuing; file contents belong in your editor.</p>
+ {guide.repository&&<a class="workspace-download" href={guide.repository} target="_blank" rel="noopener noreferrer">Open the learner repository <span aria-hidden="true">↗</span></a>}
+ <ol class="installation-steps">{guide.steps.map((step,i)=><li><div class="install-step-heading"><span class="install-step-number">{String(i+1).padStart(2,'0')}</span><div><h4>{step.title}</h4><span class="terminal-context">{step.terminal}</span></div></div><p class="working-directory"><strong>Working directory:</strong> {step.where}</p><p>{step.why}</p>{step.choices?.map(choice=><details class="workspace-transfer"><summary>{choice.title}</summary><p><strong>Terminal:</strong> {choice.terminal}</p><p>{choice.note}</p><CommandBlock code={choice.code} terminal={choice.terminal}/></details>)}{step.code&&<CommandBlock terminal={step.terminal} code={step.code} kind={step.kind} pauseAfterFirst={step.pauseAfterFirst}/>}<div class="expected-result"><strong>Check before continuing</strong><p>{step.expected}</p></div><details class="walkthrough-recovery"><summary>If the result differs</summary><p>{step.recovery}</p></details></li>)}</ol>
+ <div class="install-sources"><span>Official references</span>{guide.sources.map(([title,url])=><a href={url} target="_blank" rel="noopener noreferrer">{title} ↗</a>)}</div>
+</section>

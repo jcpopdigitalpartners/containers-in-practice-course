@@ -1,0 +1,17 @@
+scene theme=paper layout=TB
+
+pod A "API Pod A"
+pod B "API Pod B"
+database DB "Shared database"
+service Measure "Latency + throughput"
+
+
+beat observe "Observe":
+  show $nodes stagger=80ms
+
+beat change "Investigate":
+  A -> DB "shared dependency"
+  B -> DB "shared dependency"
+
+beat prove "Verify":
+  DB -> Measure "measure the bottleneck"

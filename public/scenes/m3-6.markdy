@@ -1,0 +1,18 @@
+scene theme=paper layout=TB
+
+service Controller "Deployment controller"
+pod Old "Old ready Pods"
+pod New "New Pods"
+gateway Service "Service endpoints"
+
+
+beat observe "Observe":
+  show $nodes stagger=80ms
+
+beat change "Investigate":
+  Controller -> New "create replacements"
+  Controller -> Old "manage rollout"
+
+beat prove "Verify":
+  Service -> New "ready endpoints"
+  Service -> Old "ready endpoints"

@@ -1,0 +1,17 @@
+scene theme=paper layout=TB
+
+storage Config "OpenTofu configuration"
+service Plan "Inspect the plan"
+service Apply "Apply the change"
+storage State "State + resources"
+
+
+beat observe "Observe":
+  show $nodes stagger=80ms
+
+beat change "Investigate":
+  Config -> Plan "declare desired resources"
+  Plan -> Apply "review before applying"
+
+beat prove "Verify":
+  Apply -> State "track managed resources"

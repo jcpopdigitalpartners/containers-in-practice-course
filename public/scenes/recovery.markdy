@@ -1,0 +1,17 @@
+scene theme=paper layout=TB
+
+service Observe "Observe the failure"
+storage Evidence "Capture exact output"
+service Compare "Compare one variable"
+service Repair "Repair or restore"
+
+
+beat observe "Observe":
+  show $nodes stagger=80ms
+
+beat change "Investigate":
+  Observe -> Evidence "preserve the symptom"
+  Evidence -> Compare "form a hypothesis"
+
+beat prove "Verify":
+  Compare -> Repair "test a bounded change"

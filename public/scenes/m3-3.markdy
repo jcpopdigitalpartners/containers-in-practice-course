@@ -1,0 +1,17 @@
+scene theme=paper layout=TB
+
+database Original "Original database"
+storage Backup "Backup artifact"
+database Restore "Restored database"
+client Verify "Record comparison"
+
+
+beat observe "Observe":
+  show $nodes stagger=80ms
+
+beat change "Investigate":
+  Original -> Backup "create backup"
+  Backup -> Restore "restore into test target"
+
+beat prove "Verify":
+  Verify -> Restore "check recovered records"

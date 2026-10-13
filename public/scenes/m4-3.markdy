@@ -1,0 +1,17 @@
+scene theme=paper layout=TB
+
+service API "API process"
+service Caps "Linux capabilities"
+service Seccomp "Seccomp profile"
+service Kernel "Linux kernel"
+
+
+beat observe "Observe":
+  show $nodes stagger=80ms
+
+beat change "Investigate":
+  API -> Caps "constrain privileges"
+  API -> Seccomp "filter system calls"
+
+beat prove "Verify":
+  Seccomp -> Kernel "permitted calls"

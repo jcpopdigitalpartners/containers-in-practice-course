@@ -1,0 +1,22 @@
+scene theme=paper layout=TB
+client Workstation "Your workstation"
+service API "A working Node.js API"
+service Entry "Service"
+pod PodA "Pod · A"
+pod PodB "Pod · B"
+service Boundaries "Recovery + security"
+
+group kubernetes "Kubernetes": Entry PodA PodB
+
+beat observe "Start from your machine":
+  show $nodes stagger=80ms
+
+beat change "Build and scale":
+  Workstation -> API "prepare, package, run"
+  API -> Entry "run in Kubernetes"
+  Entry -> PodA "route requests"
+  Entry -> PodB "route requests"
+
+beat prove "Test the boundaries":
+  PodA -> Boundaries "recover and constrain"
+  PodB -> Boundaries "recover and constrain"

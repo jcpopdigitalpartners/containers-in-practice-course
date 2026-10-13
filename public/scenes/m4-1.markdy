@@ -1,0 +1,17 @@
+scene theme=paper layout=TB
+
+service Engine "Host Podman identity"
+pod Process "Container process UID"
+storage Settings "Pod security declarations"
+storage Evidence "Observed runtime identity"
+
+
+beat observe "Observe":
+  show $nodes stagger=80ms
+
+beat change "Investigate":
+  Settings -> Process "requested execution identity"
+  Engine -> Process "distinct privilege boundary"
+
+beat prove "Verify":
+  Process -> Evidence "inspect actual UID"

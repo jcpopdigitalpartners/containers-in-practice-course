@@ -1,0 +1,17 @@
+scene theme=paper layout=TB
+
+storage Image "One OCI image"
+service Dev "Development"
+service Stage "Staging"
+database DB "Environment-specific data"
+
+
+beat observe "Observe":
+  show $nodes stagger=80ms
+
+beat change "Investigate":
+  Image -> Dev "runtime configuration"
+  Image -> Stage "runtime configuration"
+
+beat prove "Verify":
+  Stage -> DB "configured hostname"

@@ -1,0 +1,22 @@
+---
+import TerminalBlock from './TerminalBlock.astro';
+---
+<section id="machine-readiness" class="readiness-panel" aria-labelledby="readiness-title">
+  <h3 id="readiness-title">Check workstation readiness</h3>
+  <p>Measure the environment where your containers will run, then compare it with the course targets above.</p>
+  <form id="readiness-form" novalidate>
+    <label class="readiness-field"><span>Where will the labs run?</span><select id="readiness-os" required><option value="">Choose an environment</option><option value="ubuntu">Ubuntu/WSL · native Ubuntu</option><option value="wsl">Ubuntu/WSL · WSL 2 guest</option><option value="rhel">RHEL/Fedora · native Linux</option><option value="mac">macOS · Linux VM</option><option value="windows">Windows · WSL 2 planned</option></select></label>
+    <div id="readiness-command" class="readiness-command" hidden><div class="readiness-code-top"><button type="button" id="readiness-copy">Copy checks ↗</button></div><TerminalBlock codeId="readiness-code" labelId="readiness-command-label" label="Resource checks"/><p id="readiness-command-note"></p></div>
+    <div class="readiness-grid">
+      <label class="readiness-field"><span>Logical CPU cores</span><input id="readiness-cores" type="number" inputmode="numeric" min="1" max="1024" step="1" placeholder="e.g. 8" required/></label>
+      <label class="readiness-field"><span>Usable RAM (GiB)</span><input id="readiness-ram" type="number" inputmode="decimal" min="0.1" max="2048" step="any" placeholder="e.g. 16" required/></label>
+      <label class="readiness-field"><span>Free storage (GiB)</span><input id="readiness-disk" type="number" inputmode="decimal" min="0" max="99999" step="any" placeholder="e.g. 60" required/></label>
+      <label class="readiness-field"><span>64-bit operating system?</span><select id="readiness-arch" required><option value="">Not checked</option><option value="yes">Yes · verified</option><option value="no">No</option></select></label>
+    </div>
+    <label class="readiness-field"><span>Linux runtime / virtualization support</span><select id="readiness-runtime" required><option value="">Not checked</option><option value="yes">Available or supported</option><option value="no">Unavailable / unsupported</option></select><small>Native Linux does not require a separate VM. For Windows, confirm WSL 2 support; for macOS, confirm a supported Linux VM path. Verify installed tools and container behavior in Module 0.2.</small></label>
+    <label class="readiness-field"><span>Where were these measurements taken?</span><select id="readiness-source" required><option value="">Choose a measurement source</option><option value="host">Host computer / native OS</option><option value="guest">Actual Linux guest allocation</option></select><small>For WSL 2, Podman Machine, or another Linux VM, use guest measurements after that environment is configured.</small></label>
+    <div class="readiness-actions"><button type="submit">Evaluate readiness ↗</button><button type="reset">Clear measurements</button></div>
+  </form>
+  <div id="readiness-results" class="readiness-results" role="status" aria-live="polite" hidden><h4 id="readiness-result-heading"></h4><p id="readiness-result-summary"></p><ul id="readiness-reasons"></ul><div class="readiness-actions"><button type="button" id="readiness-to-os" hidden>Continue to Module 0.1 tool installation →</button><button type="button" id="readiness-copy-report">Copy assessment ↗</button></div></div>
+  <p class="fine-print">This check evaluates the measurements you enter. The browser cannot inspect your machine directly, and this assessment does not replace a working container test.</p>
+</section>

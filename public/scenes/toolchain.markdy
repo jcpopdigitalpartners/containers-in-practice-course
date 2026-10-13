@@ -1,0 +1,20 @@
+scene theme=paper type=swimlane width=1040 height=460
+
+service Buildah "Buildah · build images"
+service Podman "Podman · run containers"
+service Skopeo "Skopeo · inspect images"
+service Tofu "OpenTofu · declare infrastructure"
+service Git "Git · record changes"
+client Curl "curl · send requests"
+
+group images "Images and containers": Buildah Podman Skopeo
+group supporting "Infrastructure and evidence": Tofu Git Curl
+
+beat roles "Six tools, six jobs":
+  show $nodes stagger=80ms
+
+beat images "Build, run, inspect":
+  glow Buildah Podman Skopeo
+
+beat supporting "Declare, record, request":
+  glow Tofu Git Curl

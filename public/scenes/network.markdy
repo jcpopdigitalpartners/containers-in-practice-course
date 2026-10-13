@@ -1,0 +1,16 @@
+scene theme=paper layout=TB
+
+client Client "Requesting client"
+service API "API container"
+database DB "PostgreSQL"
+
+group network "Explicit container network": API DB
+beat observe "Observe":
+  show $nodes stagger=80ms
+
+beat change "Investigate":
+  Client -> API "HTTP request"
+
+beat prove "Verify":
+  API -> DB "database operation"
+  Client <- API "HTTP response"

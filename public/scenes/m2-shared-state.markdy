@@ -1,0 +1,20 @@
+scene theme=paper layout=TB
+
+client Client "Client connections"
+gateway Service "Kubernetes Service"
+pod A "Ready Pod A"
+pod B "Ready Pod B"
+database DB "Shared datastore"
+
+
+beat observe "Observe":
+  show $nodes stagger=80ms
+
+beat change "Investigate":
+  Client -> Service "new connections"
+  Service -> A "eligible endpoint"
+  Service -> B "eligible endpoint"
+
+beat prove "Verify":
+  A -> DB "shared state"
+  B -> DB "shared state"

@@ -1,0 +1,17 @@
+scene theme=paper layout=TB
+
+client Client "Clients"
+gateway Service "Service endpoint"
+pod Replacement "Replacement Pod"
+storage Volume "Existing data volume"
+
+
+beat observe "Observe":
+  show $nodes stagger=80ms
+
+beat change "Investigate":
+  Client -> Service "request"
+  Service -> Replacement "eligible endpoint"
+
+beat prove "Verify":
+  Replacement -> Volume "reconnect storage"

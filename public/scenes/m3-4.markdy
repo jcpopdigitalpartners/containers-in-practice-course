@@ -1,0 +1,15 @@
+scene theme=paper layout=TB
+
+service Kubelet "Kubelet"
+pod Pod "Application container"
+gateway Service "Service endpoints"
+
+
+beat observe "Observe":
+  show $nodes stagger=80ms
+
+beat change "Investigate":
+  Kubelet -> Pod "startup / liveness"
+
+beat prove "Verify":
+  Pod -> Service "readiness eligibility"

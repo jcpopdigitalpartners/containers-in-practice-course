@@ -1,0 +1,17 @@
+scene theme=paper layout=TB
+
+storage Commit "Source commit"
+storage Image "Image digest"
+service Review "Scan + SBOM"
+pod Run "Deployed artifact"
+
+
+beat observe "Observe":
+  show $nodes stagger=80ms
+
+beat change "Investigate":
+  Commit -> Image "build artifact"
+  Image -> Review "inventory and findings"
+
+beat prove "Verify":
+  Image -> Run "compare observed identity"

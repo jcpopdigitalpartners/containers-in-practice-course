@@ -1,0 +1,17 @@
+scene theme=paper layout=TB
+
+service Core "Core investigation"
+service Dive "Optional deep dive"
+service Challenge "Independent challenge"
+storage Proof "Observable evidence"
+
+
+beat observe "Observe":
+  show $nodes stagger=80ms
+
+beat change "Investigate":
+  Core -> Proof "required proof"
+
+beat prove "Verify":
+  Core -> Dive "explore the mechanism"
+  Core -> Challenge "use less scaffolding"

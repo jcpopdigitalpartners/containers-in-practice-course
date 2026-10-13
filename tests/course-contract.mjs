@@ -1,0 +1,24 @@
+import assert from 'node:assert/strict';import fs from 'node:fs';import {createHash} from 'node:crypto';import {parse,compile} from '@markdy/core';import {JSDOM} from 'jsdom';
+const course=JSON.parse(fs.readFileSync('src/data/course.json'));assert.equal(course.chapters.length,45);assert.equal(course.tracks.length,45);assert.equal(course.sourceTracks.length,14);assert.equal(new Set(course.tracks.map(t=>t.file)).size,45);assert.equal(new Set(course.chapters.map(c=>c.id)).size,45);
+for(let i=0;i<course.tracks.length;i++){const t=course.tracks[i];assert.ok(fs.statSync('public/audio/'+t.file).size>1000);assert.equal(t.peaks.length,128);const chapters=course.chapters.filter(c=>c.track===i);assert.equal(chapters[0].at,0);chapters.forEach((c,j)=>{assert.ok(c.at<t.length);if(j)assert.ok(c.at>chapters[j-1].at);});}
+const manifest=JSON.parse(fs.readFileSync('public/audio/lesson-manifest.json'));assert.equal(manifest.clips.length,45);
+for(let i=0;i<course.sourceTracks.length;i++){const source=course.sourceTracks[i],chapters=course.chapters.filter(c=>c.sourceTrack===i);assert.ok(fs.statSync('public/audio/'+source.file).size>1000);assert.equal(chapters[0].sourceAt,0);chapters.forEach((c,j)=>{assert.equal(c.sourceEnd,chapters[j+1]?.sourceAt??source.length);const entry=manifest.clips.find(x=>x.lesson===c.id),track=course.tracks[c.track];assert.equal(entry.file,track.file);if(c.audioOverride){assert.equal(entry.mode,'supplied');assert.equal(entry.sourceFile,c.audioOverride.file);assert.equal(entry.sourceStart,0);assert.equal(entry.sourceEnd,track.length);assert.equal(entry.uploadedName,c.audioOverride.uploadedName);assert.equal(createHash('sha256').update(fs.readFileSync('public/audio/'+track.file)).digest('hex'),c.audioOverride.sha256);}else{assert.ok(Math.abs(track.length-(c.sourceEnd-c.sourceAt))<.12);assert.equal(entry.sourceFile,source.file);assert.equal(entry.sourceStart,c.sourceAt);assert.equal(entry.sourceEnd,c.sourceEnd);}});}
+for(const c of course.chapters){for(const alias of c.audioOverride?.legacyFiles??[])assert.equal(createHash('sha256').update(fs.readFileSync('public/audio/'+alias)).digest('hex'),c.audioOverride.sha256,'Legacy URL serves the full supplied recording: '+c.id);}
+const moduleZero=course.chapters.filter(c=>c.module===0&&!c.opening);moduleZero.forEach((c,i)=>assert.equal(c.audioOverride.uploadedName,(i===5?'auudacity':'audacity')+' mod '+String(i).padStart(2,'0')+'.mp3'));
+for(const c of course.chapters){const plan=compile(parse(c.scene));assert.equal(plan.beats.length,3);assert.ok(plan.nodes.length>=3);assert.ok(c.tasks.length>=3);assert.equal(c.steps.length,3);assert.ok(c.resourcesResolved.length>=1, 'Resources missing for '+c.id);for(const r of c.resourcesResolved)assert.ok(r.url.startsWith('https://'));assert.equal(fs.readFileSync('public/scenes/'+c.sceneFile,'utf8'),c.scene);}
+const dom=new JSDOM(fs.readFileSync('dist/index.html','utf8'));const document=dom.window.document;const ids=[...document.querySelectorAll('[id]')].map(x=>x.id);assert.equal(ids.length,new Set(ids).size,'IDs must be unique');assert.equal(document.querySelectorAll('[data-lesson]').length,45);assert.equal(document.querySelectorAll('[data-pane]').length,90);
+for(const x of document.querySelectorAll('[aria-controls]'))for(const id of x.getAttribute('aria-controls').split(/\s+/))assert.ok(document.getElementById(id));
+for(const x of document.querySelectorAll('a[href^="#"]'))assert.ok(document.getElementById(x.hash.slice(1)),x.href);
+assert.equal(document.querySelector('audio').getAttribute('autoplay'),null);
+assert.equal(document.querySelectorAll('a[href$="practice-starter.zip"]').length,0,'The obsolete ZIP handoff is absent');
+assert.equal(document.querySelectorAll('[data-pane="practice"] a[href="https://github.com/jcpopdigitalpartners/fussy-stork"]').length,45,'Every practice pane links to the hosted learner repository');
+console.log('PASS: 45 lesson recordings/scenes, full source-cue coverage, 14 retained originals, manifest, waveforms, resources, hosted clone handoff, accessible control mappings');
+
+assert.equal(course.chapters[0].id,"opening");assert.equal(course.tracks[0].file,"course-opening.mp3");assert.equal(document.querySelector(".opening-link").dataset.go,"opening");
+
+assert.equal(document.querySelectorAll('[data-note],[data-export],[data-tab=notes],[data-pane=notes]').length,0,'Field Notes controls must be absent');
+
+const toolchain=course.chapters.find(c=>c.id==='toolchain'),baseline=course.chapters.find(c=>c.id==='baseline');
+assert.notEqual(toolchain.scene,baseline.scene,'Tool roles must have their own scene');
+const roles=compile(parse(toolchain.scene));assert.equal(roles.nodes.length,6);assert.equal(roles.edges.length,0,'A role map does not imply an automatic pipeline');
+for(const name of ['Buildah','Podman','Skopeo','OpenTofu','Git','curl'])assert.ok(roles.nodes.some(n=>n.label.includes(name)));

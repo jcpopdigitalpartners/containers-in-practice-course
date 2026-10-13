@@ -1,0 +1,18 @@
+scene theme=paper layout=TB
+
+client Host "Your workstation"
+service Guest "Linux environment"
+service Runtime "Podman runtime"
+service Process "Container process"
+
+
+beat observe "Observe":
+  show $nodes stagger=80ms
+
+beat change "Investigate":
+  Host -> Guest "check allocation"
+  Guest -> Runtime "verify tools"
+
+beat prove "Verify":
+  Runtime -> Process "run OCI image"
+  Runtime <- Process "observe exit status"

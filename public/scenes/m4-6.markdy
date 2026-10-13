@@ -1,0 +1,17 @@
+scene theme=paper layout=TB
+
+client Request "Pod creation request"
+service Admission "Admission policy"
+pod Pod "Admitted Pod"
+service Denied "Rejected request"
+
+
+beat observe "Observe":
+  show $nodes stagger=80ms
+
+beat change "Investigate":
+  Request -> Admission "evaluate specification"
+
+beat prove "Verify":
+  Admission -> Pod "compliant request"
+  Admission -> Denied "noncompliant request"
